@@ -43,7 +43,7 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.protoypes.playlist, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.identifiers.playlist, for: indexPath)
         
         if let selectedPlaylist = playlistArray?[indexPath.row] {
             if selectedPlaylist.name == idea?.playlist?.name {

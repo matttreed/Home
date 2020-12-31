@@ -18,6 +18,9 @@
 		34115954259AA184006D7A53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115953259AA184006D7A53 /* Constants.swift */; };
 		34115961259AA34E006D7A53 /* IdeasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115960259AA34E006D7A53 /* IdeasViewController.swift */; };
 		3443EE6F259D4EEB00E0DA85 /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EE6E259D4EEB00E0DA85 /* PlaylistsViewController.swift */; };
+		3443EE75259DBEF500E0DA85 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EE73259DBEF500E0DA85 /* IdeaCell.swift */; };
+		3443EE76259DBEF500E0DA85 /* IdeaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3443EE74259DBEF500E0DA85 /* IdeaCell.xib */; };
+		3443EE81259DCE9D00E0DA85 /* ControlContainableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */; };
 		34B0309C259C4039006B32BC /* PlaylistPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */; };
 		34B030B1259C6BB0006B32BC /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030B0259C6BB0006B32BC /* Idea.swift */; };
 		34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030BB259C6CD6006B32BC /* Playlist.swift */; };
@@ -63,6 +66,9 @@
 		34115953259AA184006D7A53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		34115960259AA34E006D7A53 /* IdeasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeasViewController.swift; sourceTree = "<group>"; };
 		3443EE6E259D4EEB00E0DA85 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsViewController.swift; sourceTree = "<group>"; };
+		3443EE73259DBEF500E0DA85 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
+		3443EE74259DBEF500E0DA85 /* IdeaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdeaCell.xib; sourceTree = "<group>"; };
+		3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlContainableTableView.swift; sourceTree = "<group>"; };
 		34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPickerViewController.swift; sourceTree = "<group>"; };
 		34B030B0259C6BB0006B32BC /* Idea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idea.swift; sourceTree = "<group>"; };
 		34B030BB259C6CD6006B32BC /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 				34115960259AA34E006D7A53 /* IdeasViewController.swift */,
 				34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */,
 				3443EE6E259D4EEB00E0DA85 /* PlaylistsViewController.swift */,
+				3443EE73259DBEF500E0DA85 /* IdeaCell.swift */,
+				3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				34115919259A9C05006D7A53 /* Main.storyboard */,
+				3443EE74259DBEF500E0DA85 /* IdeaCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3443EE76259DBEF500E0DA85 /* IdeaCell.xib in Resources */,
 				34115923259A9C08006D7A53 /* LaunchScreen.storyboard in Resources */,
 				34115920259A9C08006D7A53 /* Assets.xcassets in Resources */,
 				3411591B259A9C05006D7A53 /* Main.storyboard in Resources */,
@@ -459,11 +469,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3443EE81259DCE9D00E0DA85 /* ControlContainableTableView.swift in Sources */,
 				3443EE6F259D4EEB00E0DA85 /* PlaylistsViewController.swift in Sources */,
 				34115954259AA184006D7A53 /* Constants.swift in Sources */,
 				34B030C4259C7259006B32BC /* RealmInterface.swift in Sources */,
 				34115918259A9C05006D7A53 /* TitleScreenViewController.swift in Sources */,
 				34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */,
+				3443EE75259DBEF500E0DA85 /* IdeaCell.swift in Sources */,
 				34B030B1259C6BB0006B32BC /* Idea.swift in Sources */,
 				34115914259A9C05006D7A53 /* AppDelegate.swift in Sources */,
 				34B0309C259C4039006B32BC /* PlaylistPickerViewController.swift in Sources */,

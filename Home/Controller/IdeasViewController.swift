@@ -36,11 +36,15 @@ class IdeasViewController: UIViewController {
     
     var currentIdea: Idea? = nil
     var backupIdea: Idea? = nil
+    
+    var expandedIdeas = Set<Int>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ideasTable.delegate = self
+        ideasTable.register(UINib(nibName: K.ideaCellNibName, bundle: nil), forCellReuseIdentifier: K.identifiers.idea)
+        
+        //ideasTable.delegate = self
         ideasTable.dataSource = self
         
         newIdeaContainer.layer.cornerRadius = 10
@@ -171,35 +175,51 @@ class IdeasViewController: UIViewController {
 
 extension IdeasViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ideasArray?.count ?? 1
+        return ideasArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.protoypes.idea, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.identifiers.idea, for: indexPath) as! IdeaCell
+        let cellIdea = ideasArray![indexPath.row]
         
-        if currentIdea?.dateCreated == ideasArray?[indexPath.row].dateCreated {
-            cell.textLabel?.text = "EDITING"
-        } else {
-            cell.textLabel?.text = ideasArray?[indexPath.row].idea ?? "No Ideas Yet"
+        cell.delegate = self
+        cell.rowNum = indexPath.row
+        
+        cell.ideaLabel.text = cellIdea.idea
+        
+        cell.explanationContainer.isHidden = true
+        if cellIdea.explanation != nil {
+            cell.explanationLabel.text = cellIdea.explanation
         }
+        if expandedIdeas.contains(indexPath.row) {
+            // cell should be expanded
+            cell.explanationContainer.isHidden = false
+            cell.cellImage.image = UIImage(systemName: "chevron.up")
+        } else {
+            cell.cellImage.image = UIImage(systemName: "chevron.down")
+        }
+        
+        cell.stackViewContainer.layer.cornerRadius = 10
         return cell
     }
 }
+
+
     
 
 //MARK: - Tableview Delegate
 
-extension IdeasViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if currentIdea == nil {
-            currentIdea = ideasArray?[indexPath.row] ?? Idea()
-            backupIdea = realmInterface.createBackup(idea: currentIdea!)
-            updateUI()
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
+//extension IdeasViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if currentIdea == nil {
+//            currentIdea = ideasArray?[indexPath.row] ?? Idea()
+//            backupIdea = realmInterface.createBackup(idea: currentIdea!)
+//            updateUI()
+//        }
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//}
 
 
 
@@ -208,27 +228,27 @@ extension IdeasViewController: UITableViewDelegate {
 
 
 
-extension UIView {
-
-    func fadeIn(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
-        self.alpha = 0
-        self.isHidden = false
-        UIView.animate(withDuration: duration!,
-                       animations: { self.alpha = 1 },
-                       completion: { (value: Bool) in
-                          if let complete = onCompletion { complete() }
-                       }
-        )
-    }
-
-    func fadeOut(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
-        UIView.animate(withDuration: duration!,
-                       animations: { self.alpha = 0 },
-                       completion: { (value: Bool) in
-                           self.isHidden = true
-                           if let complete = onCompletion { complete() }
-                       }
-        )
-    }
-
-}
+//extension UIView {
+//
+//    func fadeIn(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
+//        self.alpha = 0
+//        self.isHidden = false
+//        UIView.animate(withDuration: duration!,
+//                       animations: { self.alpha = 1 },
+//                       completion: { (value: Bool) in
+//                          if let complete = onCompletion { complete() }
+//                       }
+//        )
+//    }
+//
+//    func fadeOut(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
+//        UIView.animate(withDuration: duration!,
+//                       animations: { self.alpha = 0 },
+//                       completion: { (value: Bool) in
+//                           self.isHidden = true
+//                           if let complete = onCompletion { complete() }
+//                       }
+//        )
+//    }
+//
+//}

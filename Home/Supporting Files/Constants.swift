@@ -8,9 +8,11 @@
 import Foundation
 
 struct K {
-    struct protoypes {
+    static let ideaCellNibName = "IdeaCell"
+    
+    struct identifiers {
         static let idea = "ideaPrototype"
-        static let createIdea = "createIdeaPrototype"
+        //static let createIdea = "createIdeaPrototype"
         static let playlist = "playlistCellPrototype"
     }
     struct segues {
