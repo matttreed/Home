@@ -58,7 +58,7 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        parentVC?.reloadUI()
+        parentVC?.updateUI()
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -37,7 +37,7 @@ class RealmInterface {
     }
     
     func loadPlaylists() -> Results<Playlist> {
-        return realm.objects(Playlist.self)
+        return realm.objects(Playlist.self).sorted(byKeyPath: "name", ascending: false)
     }
     
     func update(ideaObject: Idea, idea: String? = nil, explanation: String? = nil, playlist: Playlist? = nil) {

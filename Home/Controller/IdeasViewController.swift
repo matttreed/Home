@@ -23,7 +23,6 @@ class IdeasViewController: UIViewController {
     @IBOutlet weak var ideaTextView: UITextView!
     @IBOutlet weak var explanationTextView: UITextView!
     @IBOutlet weak var addExplanationButton: UIButton!
-    
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -33,11 +32,9 @@ class IdeasViewController: UIViewController {
     
     let realmInterface = RealmInterface()
     
-    // RAM storage for list of ideas
     var ideasArray: Results<Idea>?
     
     var currentIdea: Idea? = nil
-    
     var backupIdea: Idea? = nil
 
     override func viewDidLoad() {
@@ -51,17 +48,12 @@ class IdeasViewController: UIViewController {
         cancelButton.layer.cornerRadius = 10
         playlistLabelContainer.layer.cornerRadius = 10
         
-//        NewIdeaContainer.layer.borderWidth = 1
-//        NewIdeaContainer.layer.borderColor = UIColor.systemGray2.cgColor
-        
         ideasArray = realmInterface.loadIdeas()
-        
-        componentsOfAddIdea.frame.size.height = 70
         
         ideasTable.estimatedRowHeight = 100
         ideasTable.rowHeight = UITableView.automaticDimension
         
-        reloadUI()
+        updateUI()
     }
     
     
@@ -69,16 +61,19 @@ class IdeasViewController: UIViewController {
         currentIdea = Idea()
         currentIdea?.dateCreated = Date().description
         realmInterface.saveNew(idea: currentIdea!)
-        reloadUI()
+        updateUI()
     }
     
 
     @IBAction func addExplanationPressed(_ sender: UIButton) {
         realmInterface.update(ideaObject: currentIdea!, idea: ideaTextView.text, explanation: "")
-        reloadUI()
+        updateUI()
     }
     
     @IBAction func addToPlaylistPressed(_ sender: Any) {
+        realmInterface.update(ideaObject: currentIdea!,
+                              idea: ideaTextView.text,
+                              explanation: (explanationTextView.text == "") ? nil : explanationTextView.text)
         performSegue(withIdentifier: K.segues.pickPlaylist, sender: self)
     }
     
@@ -99,7 +94,7 @@ class IdeasViewController: UIViewController {
                 backupIdea = nil
             }
         }
-        reloadUI()
+        updateUI()
     }
     
     
@@ -111,22 +106,19 @@ class IdeasViewController: UIViewController {
         }
         currentIdea = nil
         backupIdea = nil
-        reloadUI()
+        updateUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == K.segues.editIdea) {
-            let destination = segue.destination as! EditIdeaViewController
-            destination.parentVC = self
-        } else if (segue.identifier == K.segues.pickPlaylist) {
+    
+        if segue.identifier == K.segues.pickPlaylist {
             let destination = segue.destination as! PlaylistPickerViewController
             destination.parentVC = self
             destination.idea = currentIdea
         }
     }
     
-    func reloadUI() {
+    func updateUI() {
         
         if currentIdea == nil {
             addNewIdeaContainer.isHidden = false
@@ -135,15 +127,17 @@ class IdeasViewController: UIViewController {
             explanationContainer.isHidden = true
             playlistSelectContainer.isHidden = true
             addCancelContainer.isHidden = true
-            
             ideaTextView.text = ""
             explanationTextView.text = ""
+            
         } else {
             
             addNewIdeaContainer.isHidden = true
-            ideaContainer.isHidden = false
             ideaTextView.text = currentIdea?.idea
             playlistLabel.text = (currentIdea?.playlist == nil) ? "General" : currentIdea?.playlist?.name
+            addNewIdeaContainer.isHidden = true
+            ideaContainer.isHidden = false
+            //ideaContainer.isHidden = false
             if currentIdea?.explanation == nil {
                 addExplanationContainer.isHidden = false
                 explanationContainer.isHidden = true
@@ -154,6 +148,7 @@ class IdeasViewController: UIViewController {
                 explanationTextView.text = currentIdea?.explanation
             }
             playlistSelectContainer.isHidden = false
+            
             addCancelContainer.isHidden = false
         }
         
@@ -180,6 +175,7 @@ extension IdeasViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: K.protoypes.idea, for: indexPath)
         
         if currentIdea?.dateCreated == ideasArray?[indexPath.row].dateCreated {
@@ -199,8 +195,40 @@ extension IdeasViewController: UITableViewDelegate {
         if currentIdea == nil {
             currentIdea = ideasArray?[indexPath.row] ?? Idea()
             backupIdea = realmInterface.createBackup(idea: currentIdea!)
-            reloadUI()
+            updateUI()
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+
+
+
+
+
+
+
+extension UIView {
+
+    func fadeIn(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
+        self.alpha = 0
+        self.isHidden = false
+        UIView.animate(withDuration: duration!,
+                       animations: { self.alpha = 1 },
+                       completion: { (value: Bool) in
+                          if let complete = onCompletion { complete() }
+                       }
+        )
+    }
+
+    func fadeOut(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: duration!,
+                       animations: { self.alpha = 0 },
+                       completion: { (value: Bool) in
+                           self.isHidden = true
+                           if let complete = onCompletion { complete() }
+                       }
+        )
+    }
+
 }
