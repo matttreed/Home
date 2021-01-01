@@ -13,4 +13,5 @@ class Idea: Object {
     @objc dynamic var idea: String = ""
     @objc dynamic var explanation: String? = nil
     @objc dynamic var playlist: Playlist? = nil
+    @objc dynamic var id: String = UUID().uuidString
 }

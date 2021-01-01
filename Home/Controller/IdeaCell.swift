@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class IdeaCell: UITableViewCell {
+class IdeaCell: SwipeTableViewCell {
 
     @IBOutlet weak var stackViewContainer: UIView!
     @IBOutlet weak var cellStackView: UIStackView!
@@ -16,25 +17,30 @@ class IdeaCell: UITableViewCell {
     @IBOutlet weak var explanationContainer: UIView!
     @IBOutlet weak var cellImage: UIImageView!
     
-    var delegate: IdeasViewController?
-    var rowNum: Int = -1
+    var parentVC: IdeasViewController?
+    var idea: Idea?
     
   
     @IBAction func expandButtonPressed(_ sender: UIButton) {
-        if delegate!.expandedIdeas.contains(rowNum) {
-            delegate!.expandedIdeas.remove(rowNum)
-        } else {
-            delegate!.expandedIdeas.insert(rowNum)
+        if idea?.explanation != nil {
+            if parentVC!.expandedIdeas.contains(idea!.id) {
+                parentVC!.expandedIdeas.remove(idea!.id)
+            } else {
+                parentVC!.expandedIdeas.insert(idea!.id)
+            }
+            parentVC?.updateUI()
         }
-        delegate?.updateUI()
     }
     
     
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        stackViewContainer.layer.cornerRadius = 10
+        stackViewContainer.layer.borderWidth = 2
+        stackViewContainer.layer.borderColor = UIColor.black.cgColor
+    }
 //
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)

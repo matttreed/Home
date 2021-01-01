@@ -6,6 +6,7 @@ target 'Home' do
   # Pods for Home
   
   pod 'RealmSwift'
+  pod 'SwipeCellKit'
 
   target 'HomeTests' do
     inherit! :search_paths

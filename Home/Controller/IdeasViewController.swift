@@ -7,10 +7,12 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 class IdeasViewController: UIViewController {
     
     
+    @IBOutlet weak var AddStackViewContainer: UIView!
     @IBOutlet weak var componentsOfAddIdea: UIView!
     @IBOutlet weak var ideasTable: UITableView!
     @IBOutlet weak var newIdeaContainer: UIStackView!
@@ -37,14 +39,14 @@ class IdeasViewController: UIViewController {
     var currentIdea: Idea? = nil
     var backupIdea: Idea? = nil
     
-    var expandedIdeas = Set<Int>()
+    var expandedIdeas = Set<String>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ideasTable.register(UINib(nibName: K.ideaCellNibName, bundle: nil), forCellReuseIdentifier: K.identifiers.idea)
         
-        //ideasTable.delegate = self
+        ideasTable.delegate = self
         ideasTable.dataSource = self
         
         newIdeaContainer.layer.cornerRadius = 10
@@ -183,8 +185,10 @@ extension IdeasViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.identifiers.idea, for: indexPath) as! IdeaCell
         let cellIdea = ideasArray![indexPath.row]
         
+        cell.idea = cellIdea
+        
+        cell.parentVC = self
         cell.delegate = self
-        cell.rowNum = indexPath.row
         
         cell.ideaLabel.text = cellIdea.idea
         
@@ -192,7 +196,10 @@ extension IdeasViewController: UITableViewDataSource {
         if cellIdea.explanation != nil {
             cell.explanationLabel.text = cellIdea.explanation
         }
-        if expandedIdeas.contains(indexPath.row) {
+        cell.cellImage.isHidden = false
+        if cellIdea.explanation == nil {
+            cell.cellImage.isHidden = true
+        } else if expandedIdeas.contains(cellIdea.id) {
             // cell should be expanded
             cell.explanationContainer.isHidden = false
             cell.cellImage.image = UIImage(systemName: "chevron.up")
@@ -200,55 +207,45 @@ extension IdeasViewController: UITableViewDataSource {
             cell.cellImage.image = UIImage(systemName: "chevron.down")
         }
         
-        cell.stackViewContainer.layer.cornerRadius = 10
         return cell
     }
 }
 
-
+extension IdeasViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if ideasArray?[indexPath.row].id == currentIdea?.id { return 0 }
+        return ideasTable.rowHeight
+    }
+}
 
-//MARK: - Tableview Delegate
+extension IdeasViewController: SwipeTableViewCellDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
 
-//extension IdeasViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if currentIdea == nil {
-//            currentIdea = ideasArray?[indexPath.row] ?? Idea()
-//            backupIdea = realmInterface.createBackup(idea: currentIdea!)
-//            updateUI()
-//        }
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-//}
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            self.expandedIdeas.remove(self.ideasArray![indexPath.row].id)
+            self.realmInterface.delete(idea: self.ideasArray![indexPath.row])
+            self.updateUI()
+        }
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "delete")
+        
+        let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in
+            if self.currentIdea == nil {
+                self.currentIdea = self.ideasArray?[indexPath.row] ?? Idea()
+                self.backupIdea = self.realmInterface.createBackup(idea: self.currentIdea!)
+                self.updateUI()
+            }
+        }
+        
+        editAction.image = UIImage(named: "pencil")
 
+        return [deleteAction, editAction]
+    }
 
-
-
-
-
-
-
-//extension UIView {
-//
-//    func fadeIn(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
-//        self.alpha = 0
-//        self.isHidden = false
-//        UIView.animate(withDuration: duration!,
-//                       animations: { self.alpha = 1 },
-//                       completion: { (value: Bool) in
-//                          if let complete = onCompletion { complete() }
-//                       }
-//        )
-//    }
-//
-//    func fadeOut(_ duration: TimeInterval? = 0.2, onCompletion: (() -> Void)? = nil) {
-//        UIView.animate(withDuration: duration!,
-//                       animations: { self.alpha = 0 },
-//                       completion: { (value: Bool) in
-//                           self.isHidden = true
-//                           if let complete = onCompletion { complete() }
-//                       }
-//        )
-//    }
-//
-//}
+    func visibleRect(for tableView: UITableView) -> CGRect? {
+        return tableView.safeAreaLayoutGuide.layoutFrame
+    }
+}
