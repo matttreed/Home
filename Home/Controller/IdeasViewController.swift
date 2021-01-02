@@ -12,6 +12,7 @@ import SwipeCellKit
 class IdeasViewController: UIViewController {
     
     
+    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var AddStackViewContainer: UIView!
     @IBOutlet weak var componentsOfAddIdea: UIView!
     @IBOutlet weak var ideasTable: UITableView!
@@ -48,6 +49,7 @@ class IdeasViewController: UIViewController {
         
         ideasTable.delegate = self
         ideasTable.dataSource = self
+        ideaTextView.delegate = self
         
         newIdeaContainer.layer.cornerRadius = 10
         doneButton.layer.cornerRadius = 10
@@ -58,6 +60,12 @@ class IdeasViewController: UIViewController {
         
         ideasTable.estimatedRowHeight = 100
         ideasTable.rowHeight = UITableView.automaticDimension
+
+        let gradient = CAGradientLayer()
+        gradient.frame = gradientView.bounds
+        gradient.colors = [UIColor.white.cgColor, UIColor.systemBlue.cgColor]
+
+        gradientView.layer.insertSublayer(gradient, at: 0)
         
         updateUI()
     }
@@ -98,9 +106,9 @@ class IdeasViewController: UIViewController {
                 currentIdea = nil
                 errorLabel.text = ""
                 backupIdea = nil
+                updateUI()
             }
         }
-        updateUI()
     }
     
     
@@ -115,6 +123,9 @@ class IdeasViewController: UIViewController {
         updateUI()
     }
     
+    
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
         if segue.identifier == K.segues.pickPlaylist {
@@ -125,6 +136,8 @@ class IdeasViewController: UIViewController {
     }
     
     func updateUI() {
+        
+        
         
         if currentIdea == nil {
             addNewIdeaContainer.isHidden = false
@@ -190,21 +203,23 @@ extension IdeasViewController: UITableViewDataSource {
         cell.parentVC = self
         cell.delegate = self
         
-        cell.ideaLabel.text = cellIdea.idea
+        cell.ideaLabel.text = cellIdea.idea.trimmingCharacters(in: [" ", "\n"])
         
         cell.explanationContainer.isHidden = true
-        if cellIdea.explanation != nil {
-            cell.explanationLabel.text = cellIdea.explanation
-        }
-        cell.cellImage.isHidden = false
+        
         if cellIdea.explanation == nil {
             cell.cellImage.isHidden = true
-        } else if expandedIdeas.contains(cellIdea.id) {
-            // cell should be expanded
-            cell.explanationContainer.isHidden = false
-            cell.cellImage.image = UIImage(systemName: "chevron.up")
         } else {
-            cell.cellImage.image = UIImage(systemName: "chevron.down")
+            cell.cellImage.isHidden = false
+            cell.explanationLabel.text = cellIdea.explanation
+            
+            if expandedIdeas.contains(cellIdea.id) {
+            // cell should be expanded
+                cell.explanationContainer.isHidden = false
+                cell.cellImage.image = UIImage(systemName: "chevron.up")
+            } else {
+                cell.cellImage.image = UIImage(systemName: "chevron.down")
+            }
         }
         
         return cell
@@ -247,5 +262,24 @@ extension IdeasViewController: SwipeTableViewCellDelegate {
 
     func visibleRect(for tableView: UITableView) -> CGRect? {
         return tableView.safeAreaLayoutGuide.layoutFrame
+    }
+}
+
+
+extension IdeasViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (ideaTextView.text as NSString).replacingCharacters(in: range, with: text)
+        if newText.count < 200 {
+            if text == "\n" {
+                let lines = newText.components(separatedBy: "\n")
+                if lines.count > 5 {
+                    errorLabel.text = "Max lines = 5"
+                    return false
+                }
+            }
+            return true
+        }
+        errorLabel.text = "Max characters = 200"
+        return false
     }
 }

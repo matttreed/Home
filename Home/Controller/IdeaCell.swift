@@ -38,8 +38,12 @@ class IdeaCell: SwipeTableViewCell {
         super.awakeFromNib()
         // Initialization code
         stackViewContainer.layer.cornerRadius = 10
-        stackViewContainer.layer.borderWidth = 2
-        stackViewContainer.layer.borderColor = UIColor.black.cgColor
+        
+//        stackViewContainer.layer.shadowOpacity = 1
+//        stackViewContainer.layer.shadowPath = UIBezierPath(rect: stackViewContainer.bounds).cgPath
+//        stackViewContainer.layer.shadowRadius = 5
+//        stackViewContainer.layer.shadowOffset = .zero
+//        stackViewContainer.layer.shadowOpacity = 1
     }
 //
 //    override func setSelected(_ selected: Bool, animated: Bool) {
