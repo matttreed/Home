@@ -12,7 +12,7 @@ import SwipeCellKit
 class IdeasViewController: UIViewController {
     
     
-    @IBOutlet weak var gradientView: UIView!
+    @IBOutlet var rootView: UIView!
     @IBOutlet weak var AddStackViewContainer: UIView!
     @IBOutlet weak var componentsOfAddIdea: UIView!
     @IBOutlet weak var ideasTable: UITableView!
@@ -62,12 +62,30 @@ class IdeasViewController: UIViewController {
         ideasTable.rowHeight = UITableView.automaticDimension
 
         let gradient = CAGradientLayer()
-        gradient.frame = gradientView.bounds
-        gradient.colors = [UIColor.white.cgColor, UIColor.systemBlue.cgColor]
+        gradient.frame = rootView.bounds
+        gradient.colors = [UIColor.white.cgColor, CGColor(red: 0.17, green: 0.73, blue: 1, alpha: 0.4)]
 
-        gradientView.layer.insertSublayer(gradient, at: 0)
+        rootView.layer.insertSublayer(gradient, at: 0)
+        
+        rootView.backgroundColor = UIColor.white
+
         
         updateUI()
+    }
+    
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        addDropShadow(view: newIdeaContainer)
+//    }
+//
+    
+    func addDropShadow(view: UIView) {
+        let shadowPath = UIBezierPath(rect: view.bounds)
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowPath = shadowPath.cgPath
     }
     
     
@@ -221,6 +239,8 @@ extension IdeasViewController: UITableViewDataSource {
                 cell.cellImage.image = UIImage(systemName: "chevron.down")
             }
         }
+        
+        cell.backgroundColor = UIColor.clear
         
         return cell
     }
