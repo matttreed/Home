@@ -10,4 +10,9 @@ import RealmSwift
 
 class Playlist: Object {
     @objc dynamic var name: String = ""
+    @objc dynamic var frequency: Int = 2
+    @objc dynamic var startTime: String = "9:00 AM"
+    @objc dynamic var endTime: String = "10:00 PM"
+    @objc dynamic var days: Int8 = 127
+    var ideasList: List<Idea> = List<Idea>()
 }

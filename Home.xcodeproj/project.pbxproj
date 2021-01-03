@@ -25,6 +25,9 @@
 		6EE52A23FB6C3AB8E47452B9 /* Pods_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C4E36F3C6397CB7B37B062 /* Pods_HomeTests.framework */; };
 		95420A31FAF705EC891D21C4 /* Pods_Home_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A3BDA6B44EA83A325E3651 /* Pods_Home_HomeUITests.framework */; };
 		C7C526D9912CA52CF9B7D966 /* Pods_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB81AC5BCC1CBC74D96DA9EB /* Pods_Home.framework */; };
+		F334FC3E25A0D5F700A1F8D8 /* ViewPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F334FC3D25A0D5F700A1F8D8 /* ViewPlaylistViewController.swift */; };
+		F387E803259DB9C7001E645E /* EditPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F387E802259DB9C7001E645E /* EditPlaylistViewController.swift */; };
+		F394377925A0687E0026085D /* DayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F394377825A0687E0026085D /* DayButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		B9C4E36F3C6397CB7B37B062 /* Pods_HomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1D4667DE69E1368D7F7D12 /* Pods-Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.debug.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.debug.xcconfig"; sourceTree = "<group>"; };
 		CB81AC5BCC1CBC74D96DA9EB /* Pods_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F334FC3D25A0D5F700A1F8D8 /* ViewPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlaylistViewController.swift; sourceTree = "<group>"; };
+		F387E802259DB9C7001E645E /* EditPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlaylistViewController.swift; sourceTree = "<group>"; };
+		F394377825A0687E0026085D /* DayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,8 @@
 				34115960259AA34E006D7A53 /* IdeasViewController.swift */,
 				34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */,
 				3443EE6E259D4EEB00E0DA85 /* PlaylistsViewController.swift */,
+				F387E802259DB9C7001E645E /* EditPlaylistViewController.swift */,
+				F334FC3D25A0D5F700A1F8D8 /* ViewPlaylistViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,9 +189,10 @@
 		3411594E259A9D13006D7A53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				34B030BB259C6CD6006B32BC /* Playlist.swift */,
 				34B030B0259C6BB0006B32BC /* Idea.swift */,
+				34B030BB259C6CD6006B32BC /* Playlist.swift */,
 				34B030C3259C7259006B32BC /* RealmInterface.swift */,
+				F394377825A0687E0026085D /* DayButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -462,12 +471,15 @@
 				3443EE6F259D4EEB00E0DA85 /* PlaylistsViewController.swift in Sources */,
 				34115954259AA184006D7A53 /* Constants.swift in Sources */,
 				34B030C4259C7259006B32BC /* RealmInterface.swift in Sources */,
+				F387E803259DB9C7001E645E /* EditPlaylistViewController.swift in Sources */,
+				F394377925A0687E0026085D /* DayButton.swift in Sources */,
 				34115918259A9C05006D7A53 /* TitleScreenViewController.swift in Sources */,
 				34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */,
 				34B030B1259C6BB0006B32BC /* Idea.swift in Sources */,
 				34115914259A9C05006D7A53 /* AppDelegate.swift in Sources */,
 				34B0309C259C4039006B32BC /* PlaylistPickerViewController.swift in Sources */,
 				34115961259AA34E006D7A53 /* IdeasViewController.swift in Sources */,
+				F334FC3E25A0D5F700A1F8D8 /* ViewPlaylistViewController.swift in Sources */,
 				34115916259A9C05006D7A53 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

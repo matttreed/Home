@@ -56,6 +56,9 @@ class IdeasViewController: UIViewController {
         updateUI()
     }
     
+    @IBAction func playlistTabPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.segues.ideasToPlaylists, sender: self)
+    }
     
     @IBAction func addNewIdeaPressed(_ sender: UIButton) {
         currentIdea = Idea()
