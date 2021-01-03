@@ -40,13 +40,20 @@ class RealmInterface {
         return realm.objects(Playlist.self).sorted(byKeyPath: "name", ascending: false)
     }
     
-    func update(ideaObject: Idea, idea: String? = nil, explanation: String? = nil, playlist: Playlist? = nil) {
+    func update(ideaObject: Idea, idea: String? = nil, explanation: String? = nil) {
         do {
             try realm.write {
                 if idea != nil { ideaObject.idea = idea! }
                 if explanation != nil { ideaObject.explanation = explanation! }
-                if playlist != nil { ideaObject.playlist = playlist! }
             }
+        } catch {
+            print("Error updating idea: \(error)")
+        }
+    }
+    
+    func update(ideaObject: Idea, playlist: Playlist?) {
+        do {
+            try realm.write {ideaObject.playlist = playlist}
         } catch {
             print("Error updating idea.playlist: \(error)")
         }
@@ -111,8 +118,8 @@ class RealmInterface {
     func restoreFromBackup(idea: Idea, backup: Idea) {
         update(ideaObject: idea,
                idea: backup.idea,
-               explanation: backup.explanation,
-               playlist: backup.playlist)
+               explanation: backup.explanation)
+        update(ideaObject: idea, playlist: backup.playlist)
     }
 }
 

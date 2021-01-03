@@ -2,7 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -94,7 +95,6 @@
                                                     <constraint firstAttribute="height" constant="50" id="9jN-rO-OP5"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HXR-6S-VLv">
@@ -111,7 +111,6 @@
                                                                 </state>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="DJI-6e-k9s" secondAttribute="bottom" constant="10" id="8XV-ag-WVz"/>
                                                             <constraint firstItem="DJI-6e-k9s" firstAttribute="top" secondItem="syh-DN-sOI" secondAttribute="top" constant="10" id="Oim-lm-kkA"/>
@@ -133,7 +132,6 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="3WE-gJ-Q4z" firstAttribute="top" secondItem="MWa-mL-5UV" secondAttribute="top" constant="10" id="l6c-X8-YTf"/>
                                                             <constraint firstItem="3WE-gJ-Q4z" firstAttribute="leading" secondItem="MWa-mL-5UV" secondAttribute="leading" constant="10" id="red-bw-gGv"/>
@@ -155,34 +153,34 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uov-x4-ucb" userLabel="AddNewIdea">
-                                                <rect key="frame" x="0.0" y="100" width="414" height="396"/>
+                                                <rect key="frame" x="0.0" y="100" width="414" height="476"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-2h-C7K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="396"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="476"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NCI-bB-Dek" userLabel="Components">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="346"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="72Z-qd-4vf">
-                                                                        <rect key="frame" x="15" y="15" width="384" height="316"/>
+                                                                        <rect key="frame" x="15" y="15" width="384" height="396"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fej-RG-zCc" userLabel="AddNewContainer">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKI-Gs-yZE">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
-                                                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                                         <state key="normal" title="   Add new idea...">
-                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="titleColor" systemColor="labelColor"/>
                                                                                         </state>
                                                                                         <connections>
                                                                                             <action selector="addNewIdeaPressed:" destination="iIe-TR-yMi" eventType="touchUpInside" id="s5w-SD-5J5"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KV9-Ay-Eks">
-                                                                                        <rect key="frame" x="339" y="12.33333333333333" width="30" height="25.666666666666668"/>
-                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <rect key="frame" x="339" y="12" width="30" height="26"/>
+                                                                                        <color key="tintColor" systemColor="labelColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="30" id="65g-Vj-S5E"/>
                                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="CFV-QY-rmk"/>
@@ -203,10 +201,10 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kw-uG-EZg" userLabel="IdeaContainer">
-                                                                                <rect key="frame" x="0.0" y="54" width="384" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="54" width="384" height="85"/>
                                                                                 <subviews>
                                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="43q-B7-sym">
-                                                                                        <rect key="frame" x="5" y="5" width="374" height="40"/>
+                                                                                        <rect key="frame" x="5" y="5" width="374" height="75"/>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                         <color key="textColor" systemColor="labelColor"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
@@ -223,21 +221,21 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QmE-qD-RE4" userLabel="AddExplanationContainer">
-                                                                                <rect key="frame" x="0.0" y="108" width="384" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="143" width="384" height="50"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ii5-xY-0FT">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
-                                                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <state key="normal" title="   Add an explanation...">
-                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="titleColor" systemColor="labelColor"/>
                                                                                         </state>
                                                                                         <connections>
                                                                                             <action selector="addExplanationPressed:" destination="iIe-TR-yMi" eventType="touchUpInside" id="cPo-Lx-ZYU"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EN9-Fc-Wq0">
-                                                                                        <rect key="frame" x="339" y="15.333333333333332" width="30" height="19.999999999999996"/>
-                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <rect key="frame" x="339" y="15" width="30" height="20.5"/>
+                                                                                        <color key="tintColor" systemColor="labelColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="30" id="0JD-gC-xvy"/>
                                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="lCL-sY-DdK"/>
@@ -258,11 +256,14 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFY-Z6-bId" userLabel="ExplanationContainer">
-                                                                                <rect key="frame" x="0.0" y="162" width="384" height="100"/>
+                                                                                <rect key="frame" x="0.0" y="197" width="384" height="145"/>
                                                                                 <subviews>
-                                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b2D-Yh-6GT">
-                                                                                        <rect key="frame" x="5" y="5" width="374" height="90"/>
+                                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b2D-Yh-6GT">
+                                                                                        <rect key="frame" x="5" y="5" width="374" height="135"/>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="135" id="6IE-mG-vTj"/>
+                                                                                        </constraints>
                                                                                         <color key="textColor" systemColor="labelColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -278,11 +279,11 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5I-TX-pB9" userLabel="PlaylistSelectContainer">
-                                                                                <rect key="frame" x="0.0" y="266" width="384" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="346" width="384" height="50"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5td-hb-cRV">
-                                                                                        <rect key="frame" x="339" y="10.999999999999998" width="30" height="28.666666666666664"/>
-                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5td-hb-cRV">
+                                                                                        <rect key="frame" x="339" y="11" width="30" height="27.5"/>
+                                                                                        <color key="tintColor" systemColor="labelColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="29M-CK-Drj"/>
                                                                                             <constraint firstAttribute="height" constant="30" id="4JY-Vy-g3s"/>
@@ -312,14 +313,14 @@
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcg-l2-1Pw">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
                                                                                         <state key="normal" title="   Playlist">
-                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="titleColor" systemColor="labelColor"/>
                                                                                         </state>
                                                                                         <connections>
                                                                                             <action selector="addToPlaylistPressed:" destination="iIe-TR-yMi" eventType="touchUpInside" id="uCt-r5-FjQ"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                <color key="backgroundColor" name="homeBlue5"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="bottom" secondItem="tcg-l2-1Pw" secondAttribute="bottom" id="FOH-CW-hG2"/>
                                                                                     <constraint firstItem="5td-hb-cRV" firstAttribute="leading" secondItem="6SH-3k-kH2" secondAttribute="trailing" constant="15" id="JkP-Jw-XmK"/>
@@ -343,7 +344,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbJ-ew-8yI">
-                                                                <rect key="frame" x="0.0" y="346" width="414" height="50"/>
+                                                                <rect key="frame" x="0.0" y="426" width="414" height="50"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8o-fZ-FoR">
                                                                         <rect key="frame" x="0.0" y="0.0" width="239" height="50"/>
@@ -367,7 +368,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YP-3n-SbL">
                                                                                 <rect key="frame" x="10" y="0.0" width="55" height="40"/>
-                                                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                <color key="backgroundColor" name="homeGreen5"/>
                                                                                 <state key="normal" title="Done">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
@@ -389,7 +390,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0H3-H6-LqH" userLabel="Cancel">
                                                                                 <rect key="frame" x="10" y="0.0" width="55" height="40"/>
-                                                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                                 <state key="normal" title="Cancel">
                                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </state>
@@ -420,7 +421,6 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
                                                     <constraint firstItem="hYe-2h-C7K" firstAttribute="leading" secondItem="Uov-x4-ucb" secondAttribute="leading" id="0q2-Va-ok3"/>
                                                     <constraint firstItem="hYe-2h-C7K" firstAttribute="top" secondItem="Uov-x4-ucb" secondAttribute="top" id="HLX-xf-dwl"/>
@@ -431,7 +431,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="alR-DK-vP4" secondAttribute="trailing" id="7vL-GZ-MkB"/>
                                     <constraint firstItem="alR-DK-vP4" firstAttribute="leading" secondItem="w7b-Qc-Ua1" secondAttribute="leading" id="HCS-ru-wra"/>
@@ -439,23 +439,13 @@
                                     <constraint firstAttribute="bottom" secondItem="alR-DK-vP4" secondAttribute="bottom" id="Wrf-gZ-PXf"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IPf-Mc-A7R">
-                                <rect key="frame" x="0.0" y="540" width="414" height="322"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ideaPrototype" rowHeight="57" id="2Wv-gu-Cg1">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="57"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Wv-gu-Cg1" id="kl1-4h-8yy">
-                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="57"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IPf-Mc-A7R" customClass="ControlContainableTableView" customModule="Home" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="620" width="414" height="242"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HpM-6p-ket"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="homeGreen3"/>
                         <constraints>
                             <constraint firstItem="HpM-6p-ket" firstAttribute="bottom" secondItem="IPf-Mc-A7R" secondAttribute="bottom" id="1sz-zu-STR"/>
                             <constraint firstItem="IPf-Mc-A7R" firstAttribute="leading" secondItem="HpM-6p-ket" secondAttribute="leading" id="IRc-JI-VGR"/>
@@ -468,6 +458,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="diR-WS-DAm"/>
                     <connections>
+                        <outlet property="AddStackViewContainer" destination="w7b-Qc-Ua1" id="j6s-Gb-1i9"/>
                         <outlet property="addCancelContainer" destination="gbJ-ew-8yI" id="Upm-jJ-lS5"/>
                         <outlet property="addExplanationButton" destination="ii5-xY-0FT" id="w2a-D6-DIg"/>
                         <outlet property="addExplanationContainer" destination="QmE-qD-RE4" id="x4y-x7-0ob"/>
@@ -485,8 +476,8 @@
                         <outlet property="playlistLabel" destination="acr-9E-Afs" id="x2W-vR-i94"/>
                         <outlet property="playlistLabelContainer" destination="6SH-3k-kH2" id="Goq-S5-HtX"/>
                         <outlet property="playlistSelectContainer" destination="t5I-TX-pB9" id="V1V-V5-8JV"/>
-                        <segue destination="Dei-wc-AqZ" kind="presentation" identifier="pickPlaylistSegue" animates="NO" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="GBl-d1-Pyq"/>
-                        <segue destination="aPN-OI-g43" kind="presentation" identifier="ideasToPlaylists" animates="NO" id="2cl-im-7MM"/>
+                        <outlet property="rootView" destination="23L-XI-gHS" id="e6D-r8-SRK"/>
+                        <segue destination="Dei-wc-AqZ" kind="presentation" identifier="pickPlaylistSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="GBl-d1-Pyq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bmf-45-flz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1527,7 +1518,15 @@
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="lessthan" catalog="system" width="128" height="111"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="homeBlue5">
+            <color red="0.16862745098039217" green="0.73333333333333328" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="homeGreen3">
+            <color red="0.71764705882352942" green="0.91764705882352937" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="homeGreen5">
+            <color red="0.61568627450980395" green="0.88627450980392153" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1537,11 +1536,11 @@
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
