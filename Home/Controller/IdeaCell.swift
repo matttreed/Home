@@ -19,6 +19,7 @@ class IdeaCell: SwipeTableViewCell {
     @IBOutlet weak var explanationContainer: UIView!
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateViewContainer: UIView!
     
     var parentVC: IdeasViewController?
     var idea: Idea?
@@ -27,12 +28,12 @@ class IdeaCell: SwipeTableViewCell {
     @IBAction func expandButtonPressed(_ sender: UIButton) {
         if idea?.explanation != nil {
             if parentVC!.expandedIdeas.contains(idea!.id) {
+                cellImage.image = UIImage(systemName: "chevron.down")
                 parentVC!.expandedIdeas.remove(idea!.id)
             } else {
+                cellImage.image = UIImage(systemName: "chevron.up")
                 parentVC!.expandedIdeas.insert(idea!.id)
             }
-            //parentVC?.updateUI()
-            //dont need expandedIdeas anymore
             UIView.transition(with: explanationContainer, duration: 0.3,
                               options: .curveEaseInOut,
                               animations: {

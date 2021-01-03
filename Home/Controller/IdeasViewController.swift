@@ -243,12 +243,21 @@ extension IdeasViewController: UITableViewDataSource {
         
         //should be inside if block v
         
+//        if cellIdea.playlist != nil {
+//            cell.playlistLabel.text = cellIdea.playlist!.name
+//            cell.playlistViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist!.color)
+//        }
         if cellIdea.playlist != nil {
             cell.playlistLabel.text = cellIdea.playlist!.name
+//            cell.playlistLabel.textColor = K.colors.getColorFromString(cellIdea.playlist!.color)
             cell.playlistViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist!.color)
+            //cell.dateLabel.textColor = K.colors.getColorFromString(cellIdea.playlist!.color)
+            //cell.dateViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist!.color)
         }
+
         
-        cell.dateLabel.text = cellIdea.dateCreated
+        cell.dateLabel.text = K.text.getNiceDate(date: cellIdea.dateCreated)
+        
         
         cell.backgroundColor = UIColor.clear
         

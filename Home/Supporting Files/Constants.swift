@@ -49,5 +49,18 @@ struct K {
                 return ["playlistRed", "playlistBlue", "playlistGreen", "playlistPurple", "playlistOrange", "playlistYellow"].randomElement()!
             }
         }
+        
+        static func getSubstring(of original: String, from start: Int, to end: Int) -> String {
+            return String(original[original.index(original.startIndex, offsetBy: start)...original.index(original.startIndex, offsetBy: end)])
+        }
+        
+        static func getNiceDate(date: String) -> String {
+            let getFormatter = DateFormatter()
+            getFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            let printFormatter = DateFormatter()
+            printFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+            let date = getFormatter.date(from: getSubstring(of: date, from: 0, to: 18))
+            return printFormatter.string(from: date!)
+        }
     }
 }

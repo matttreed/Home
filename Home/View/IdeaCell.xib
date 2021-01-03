@@ -37,7 +37,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="hcf-F2-YwR" secondAttribute="bottom" constant="10" id="8fB-bT-cpv"/>
                                                     <constraint firstItem="hcf-F2-YwR" firstAttribute="leading" secondItem="JiD-qq-G7G" secondAttribute="leading" constant="10" id="JKw-7F-7Vv"/>
@@ -51,10 +51,11 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 5, 5:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRU-7l-C1G">
                                                         <rect key="frame" x="10" y="10" width="114.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" name="homeBlue5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="tRU-7l-C1G" secondAttribute="bottom" constant="10" id="GqE-qS-zUo"/>
                                                     <constraint firstItem="tRU-7l-C1G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0m9-ve-2p6" secondAttribute="leading" constant="10" id="Hln-HX-yVJ"/>
@@ -145,6 +146,7 @@
                 <outlet property="cellImage" destination="bEl-25-2WE" id="pvk-tu-3Da"/>
                 <outlet property="cellStackView" destination="ibP-qf-ecI" id="6Lo-Lz-6Lf"/>
                 <outlet property="dateLabel" destination="tRU-7l-C1G" id="OEx-nx-rTo"/>
+                <outlet property="dateViewContainer" destination="0m9-ve-2p6" id="ixG-QJ-OaV"/>
                 <outlet property="explanationContainer" destination="pHO-6M-9JG" id="COh-zs-qe7"/>
                 <outlet property="explanationLabel" destination="QBb-xI-Oh3" id="f0H-Xd-gbn"/>
                 <outlet property="ideaLabel" destination="AqL-F5-lp2" id="5C0-A1-adq"/>
@@ -157,17 +159,14 @@
     </objects>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <namedColor name="homeBlue5">
-            <color red="0.16862745098039217" green="0.73333333333333328" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="homeGreen8">
             <color red="0.37999999523162842" green="0.65499997138977051" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
