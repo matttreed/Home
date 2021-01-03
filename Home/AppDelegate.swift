@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        } catch {
 //            print("Error deleting Realm: \(error)")
 //        }
-        
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
         return true
     }
 

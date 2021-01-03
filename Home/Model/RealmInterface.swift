@@ -59,6 +59,32 @@ class RealmInterface {
         }
     }
     
+    func update(playlistObject: Playlist, name: String? = nil, frequency: Int? = nil, startTime: String? = nil,
+                endTime: String? = nil, days: Int8? = nil) {
+        do {
+            try realm.write {
+                if name != nil { playlistObject.name = name! }
+                if frequency != nil { playlistObject.frequency = frequency! }
+                if startTime != nil { playlistObject.startTime = startTime! }
+                if endTime != nil { playlistObject.endTime = endTime! }
+                if days != nil { playlistObject.days = days! }
+            }
+        } catch {
+            print("Error updating playlist: \(error)")
+        }
+    }
+    
+    func addIdeaToPlaylist(playlistObject: Playlist, idea: Idea) {
+        do {
+            try realm.write {
+                playlistObject.ideasList.append(idea)
+            }
+        } catch {
+            print("Error adding idea to playlist: \(error)")
+        }
+        
+    }
+    
     func delete(idea: Idea) {
         do {
             try realm.write {
@@ -66,6 +92,16 @@ class RealmInterface {
             }
         } catch {
             print("Error deleting idea: \(error)")
+        }
+    }
+    
+    func delete(playlist: Playlist) {
+        do {
+            try realm.write {
+                realm.delete(playlist)
+            }
+        } catch {
+            print("Error deleting playlist: \(error)")
         }
     }
     
@@ -86,3 +122,4 @@ class RealmInterface {
         update(ideaObject: idea, playlist: backup.playlist)
     }
 }
+

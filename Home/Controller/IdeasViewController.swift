@@ -74,6 +74,11 @@ class IdeasViewController: UIViewController {
         updateUI()
     }
     
+
+    @IBAction func playlistTabPressed(_ sender: Any) {
+        performSegue(withIdentifier: K.segues.ideasToPlaylists, sender: self)
+    }
+
 //    override func viewWillLayoutSubviews() {
 //        super.viewWillLayoutSubviews()
 //        addDropShadow(view: newIdeaContainer)
@@ -88,7 +93,6 @@ class IdeasViewController: UIViewController {
         view.layer.shadowOpacity = 0.5
         view.layer.shadowPath = shadowPath.cgPath
     }
-    
     
     @IBAction func addNewIdeaPressed(_ sender: UIButton) {
         currentIdea = Idea()
