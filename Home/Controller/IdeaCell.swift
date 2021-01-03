@@ -10,12 +10,15 @@ import SwipeCellKit
 
 class IdeaCell: SwipeTableViewCell {
 
+    @IBOutlet weak var playlistViewContainer: UIView!
+    @IBOutlet weak var playlistLabel: UILabel!
     @IBOutlet weak var stackViewContainer: UIView!
     @IBOutlet weak var cellStackView: UIStackView!
     @IBOutlet weak var ideaLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var explanationContainer: UIView!
     @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var parentVC: IdeasViewController?
     var idea: Idea?
@@ -28,7 +31,15 @@ class IdeaCell: SwipeTableViewCell {
             } else {
                 parentVC!.expandedIdeas.insert(idea!.id)
             }
-            parentVC?.updateUI()
+            //parentVC?.updateUI()
+            //dont need expandedIdeas anymore
+            UIView.transition(with: explanationContainer, duration: 0.3,
+                              options: .curveEaseInOut,
+                              animations: {
+                                self.explanationContainer.isHidden.toggle()
+                          })
+            self.parentVC?.ideasTable.beginUpdates()
+            self.parentVC?.ideasTable.endUpdates()
         }
     }
     

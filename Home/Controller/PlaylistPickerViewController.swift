@@ -31,26 +31,28 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
         playlistPickerTable.delegate = self
         
         let playlist = Playlist()
-        playlist.name = Date().description
+        playlist.name = K.text.randomPlaylist
+        playlist.color = K.text.randomColorString
         realmInterface.saveNew(playlist: playlist)
         
         playlistArray = realmInterface.loadPlaylists()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playlistArray?.count ?? 1
+        return playlistArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: K.identifiers.playlist, for: indexPath)
         
-        if let selectedPlaylist = playlistArray?[indexPath.row] {
-            if selectedPlaylist.name == idea?.playlist?.name {
+        if let playlist = playlistArray?[indexPath.row] {
+            if playlist.id == idea?.playlist?.id {
                 cell.accessoryType = .checkmark
             } else {
                 cell.accessoryType = .none
             }
+            cell.backgroundColor = K.colors.getColorFromString(playlist.color)
         }
         
         cell.textLabel?.text = playlistArray?[indexPath.row].name ?? "No Playlists Yet"
@@ -63,10 +65,10 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if idea?.playlist == playlistArray?[indexPath.row] {
+        if idea?.playlist?.id == playlistArray?[indexPath.row].id {
             realmInterface.update(ideaObject: idea!, playlist: nil)
         } else {
-            realmInterface.update(ideaObject: idea!, playlist: playlistArray?[indexPath.row])
+            realmInterface.update(ideaObject: idea!, playlist: playlistArray![indexPath.row])
         }
         tableView.deselectRow(at: indexPath, animated: true)
         

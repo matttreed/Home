@@ -9,5 +9,7 @@ import Foundation
 import RealmSwift
 
 class Playlist: Object {
-    @objc dynamic var name: String = ""
+    @objc dynamic var name: String = "playlist uninit."
+    @objc dynamic var color: String = ""
+    @objc dynamic var id: String = UUID().uuidString
 }

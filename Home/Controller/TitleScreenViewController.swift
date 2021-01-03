@@ -15,7 +15,6 @@ class TitleScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nextButton.layer.cornerRadius = 10
-        
 //        let shadowSize: CGFloat = 20
 //        let contactRect = CGRect(x: -shadowSize, y: testDropShadow.frame.height - (shadowSize * 0.4), width: testDropShadow.frame.width + shadowSize * 2, height: shadowSize)
 //        testDropShadow.layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath

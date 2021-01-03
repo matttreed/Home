@@ -68,7 +68,8 @@ class IdeasViewController: UIViewController {
         rootView.layer.insertSublayer(gradient, at: 0)
         
         rootView.backgroundColor = UIColor.white
-
+        
+        self.addCancelContainer.isHidden = true
         
         updateUI()
     }
@@ -91,7 +92,6 @@ class IdeasViewController: UIViewController {
     
     @IBAction func addNewIdeaPressed(_ sender: UIButton) {
         currentIdea = Idea()
-        currentIdea?.dateCreated = Date().description
         realmInterface.saveNew(idea: currentIdea!)
         updateUI()
     }
@@ -138,6 +138,7 @@ class IdeasViewController: UIViewController {
         }
         currentIdea = nil
         backupIdea = nil
+        errorLabel.text = ""
         updateUI()
     }
     
@@ -158,38 +159,38 @@ class IdeasViewController: UIViewController {
         
         
         if currentIdea == nil {
-            addNewIdeaContainer.isHidden = false
-            ideaContainer.isHidden = true
-            addExplanationContainer.isHidden = true
-            explanationContainer.isHidden = true
-            playlistSelectContainer.isHidden = true
-            addCancelContainer.isHidden = true
-            ideaTextView.text = ""
-            explanationTextView.text = ""
+                                self.addNewIdeaContainer.isHidden = false
+                                self.ideaContainer.isHidden = true
+                                self.addExplanationContainer.isHidden = true
+                                self.explanationContainer.isHidden = true
+                                self.playlistSelectContainer.isHidden = true
+                                self.addCancelContainer.isHidden = true
+                                self.ideaTextView.text = ""
+                                self.explanationTextView.text = ""
             
         } else {
-            
-            addNewIdeaContainer.isHidden = true
-            ideaTextView.text = currentIdea?.idea
-            playlistLabel.text = (currentIdea?.playlist == nil) ? "General" : currentIdea?.playlist?.name
-            addNewIdeaContainer.isHidden = true
-            ideaContainer.isHidden = false
-            //ideaContainer.isHidden = false
-            if currentIdea?.explanation == nil {
-                addExplanationContainer.isHidden = false
-                explanationContainer.isHidden = true
-                explanationTextView.text = nil
-            } else {
-                addExplanationContainer.isHidden = true
-                explanationContainer.isHidden = false
-                explanationTextView.text = currentIdea?.explanation
-            }
-            playlistSelectContainer.isHidden = false
-            
-            addCancelContainer.isHidden = false
+            self.playlistLabelContainer.backgroundColor = K.colors.getColorFromString(currentIdea!.playlist?.color)
+                                self.addNewIdeaContainer.isHidden = true
+                                self.ideaTextView.text = self.currentIdea?.idea
+                                self.playlistLabel.text = (self.currentIdea?.playlist == nil) ? "General" : self.currentIdea?.playlist?.name
+                                self.addNewIdeaContainer.isHidden = true
+                                self.ideaContainer.isHidden = false
+                                if self.currentIdea?.explanation == nil {
+                                    self.addExplanationContainer.isHidden = false
+                                    self.explanationContainer.isHidden = true
+                                    self.explanationTextView.text = nil
+                                } else {
+                                    self.addExplanationContainer.isHidden = true
+                                    self.explanationContainer.isHidden = false
+                                    self.explanationTextView.text = self.currentIdea?.explanation
+                                }
+                                self.playlistSelectContainer.isHidden = false
+                                
+                                self.addCancelContainer.isHidden = false
+                                self.ideasTable.reloadData()
+
         }
-        
-        ideasTable.reloadData()
+        self.ideasTable.reloadData()
     }
 }
     
@@ -240,6 +241,15 @@ extension IdeasViewController: UITableViewDataSource {
             }
         }
         
+        //should be inside if block v
+        
+        if cellIdea.playlist != nil {
+            cell.playlistLabel.text = cellIdea.playlist!.name
+            cell.playlistViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist!.color)
+        }
+        
+        cell.dateLabel.text = cellIdea.dateCreated
+        
         cell.backgroundColor = UIColor.clear
         
         return cell
@@ -260,7 +270,7 @@ extension IdeasViewController: SwipeTableViewCellDelegate {
 
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
-            self.expandedIdeas.remove(self.ideasArray![indexPath.row].id)
+            
             self.realmInterface.delete(idea: self.ideasArray![indexPath.row])
             self.updateUI()
         }

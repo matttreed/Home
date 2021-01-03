@@ -27,7 +27,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2bx-Az-2By">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiD-qq-G7G">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiD-qq-G7G" userLabel="Playlist View">
                                                 <rect key="frame" x="0.0" y="0.0" width="151.5" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-F2-YwR">
@@ -51,7 +51,6 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 5, 5:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRU-7l-C1G">
                                                         <rect key="frame" x="10" y="10" width="114.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -145,9 +144,12 @@
             <connections>
                 <outlet property="cellImage" destination="bEl-25-2WE" id="pvk-tu-3Da"/>
                 <outlet property="cellStackView" destination="ibP-qf-ecI" id="6Lo-Lz-6Lf"/>
+                <outlet property="dateLabel" destination="tRU-7l-C1G" id="OEx-nx-rTo"/>
                 <outlet property="explanationContainer" destination="pHO-6M-9JG" id="COh-zs-qe7"/>
                 <outlet property="explanationLabel" destination="QBb-xI-Oh3" id="f0H-Xd-gbn"/>
                 <outlet property="ideaLabel" destination="AqL-F5-lp2" id="5C0-A1-adq"/>
+                <outlet property="playlistLabel" destination="hcf-F2-YwR" id="lfD-Gs-Hu1"/>
+                <outlet property="playlistViewContainer" destination="JiD-qq-G7G" id="PJA-jx-VRo"/>
                 <outlet property="stackViewContainer" destination="0et-Fp-vnt" id="VNm-va-v8R"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="155.69196428571428"/>
