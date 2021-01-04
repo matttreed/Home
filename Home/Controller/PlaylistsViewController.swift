@@ -50,7 +50,7 @@ extension PlaylistsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.protoypes.playlistCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.identifiers.playlistCell, for: indexPath)
         
         cell.textLabel?.text = playlistArray?[indexPath.row].name ?? "No Playlists Yet"
         

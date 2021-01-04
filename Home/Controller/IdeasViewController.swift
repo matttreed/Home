@@ -71,6 +71,9 @@ class IdeasViewController: UIViewController {
         
         self.addCancelContainer.isHidden = true
         
+        // used for testing Realm
+        realmInterface.validateData()
+        
         updateUI()
     }
     

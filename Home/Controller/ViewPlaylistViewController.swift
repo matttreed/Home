@@ -39,7 +39,7 @@ class ViewPlaylistViewController: UIViewController {
     }
     
     func initializeUI() {
-        ideas = selectedPlaylist?.ideasList.sorted(byKeyPath: "dateCreated", ascending: true)
+        ideas = selectedPlaylist?.ideas.sorted(byKeyPath: "dateCreated", ascending: true)
         ideasList.reloadData()
         
         playlistName.text = selectedPlaylist?.name
@@ -74,8 +74,8 @@ class ViewPlaylistViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: Any) {
         newIdea?.dateCreated = Date().description
         realmInterface.saveNew(idea: newIdea!)
-        realmInterface.update(ideaObject: newIdea!, idea: ideaField.text!, explanation: explanationField.text!, playlist: selectedPlaylist)
-        realmInterface.addIdeaToPlaylist(playlistObject: selectedPlaylist!, idea: newIdea!)
+        realmInterface.update(ideaObject: newIdea!, idea: ideaField.text!, explanation: explanationField.text!)
+        realmInterface.update(ideaObject: newIdea!, playlist: selectedPlaylist)
         
         initializeUI()
         ideasList.reloadData()
@@ -104,7 +104,7 @@ extension ViewPlaylistViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ideasList.dequeueReusableCell(withIdentifier: K.protoypes.viewPlaylistCell, for: indexPath)
+        let cell = ideasList.dequeueReusableCell(withIdentifier: K.identifiers.viewPlaylistCell, for: indexPath)
 
         cell.textLabel?.text = ideas?[indexPath.row].idea ?? "No ideas added yet"
         

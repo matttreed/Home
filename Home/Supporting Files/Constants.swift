@@ -58,7 +58,7 @@ struct K {
     struct text {
         static var randomPlaylist: String {
             get {
-                return ["Buddhism", "Self Help", "Astrology", "App Ideas", "Success"].randomElement()!
+                return ["Buddhism", "Self Help", "Astrology", "App Ideas", "Success", "alligator", "banana", "chimp", "dog", "elephant", "fang", "giant animal", "hare", "insect", "giraffe"].randomElement()!
             }
         }
         static var randomColorString: String {

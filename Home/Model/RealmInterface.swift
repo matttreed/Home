@@ -53,6 +53,12 @@ class RealmInterface {
     
     func update(ideaObject: Idea, playlist: Playlist?) {
         do {
+            if let currentPlaylist = ideaObject.playlist {
+                removeIdeaFromPlaylist(playlistObject: currentPlaylist, idea: ideaObject)
+            }
+            if playlist != nil {
+                addIdeaToPlaylist(playlistObject: playlist!, idea: ideaObject)
+            }
             try realm.write {ideaObject.playlist = playlist}
         } catch {
             print("Error updating idea.playlist: \(error)")
@@ -77,7 +83,18 @@ class RealmInterface {
     func addIdeaToPlaylist(playlistObject: Playlist, idea: Idea) {
         do {
             try realm.write {
-                playlistObject.ideasList.append(idea)
+                playlistObject.ideas.append(idea)
+            }
+        } catch {
+            print("Error adding idea to playlist: \(error)")
+        }
+        
+    }
+    
+    func removeIdeaFromPlaylist(playlistObject: Playlist, idea: Idea) {
+        do {
+            try realm.write {
+                playlistObject.ideas.remove(at: playlistObject.ideas.index(of: idea)!)
             }
         } catch {
             print("Error adding idea to playlist: \(error)")
@@ -120,6 +137,41 @@ class RealmInterface {
                idea: backup.idea,
                explanation: backup.explanation)
         update(ideaObject: idea, playlist: backup.playlist)
+    }
+
+    
+    func validateData() {
+        let playlists = loadPlaylists()
+        let ideas = loadIdeas()
+        
+        for playlist in playlists {
+            for idea in playlist.ideas {
+                var found = false
+                
+                for i in ideas {
+                    if i.id == idea.id {found = true}
+                }
+                
+                if !found {
+                    print("\(idea.id) in \(playlist.name), but not in general list")
+                    return
+                }
+            }
+        }
+        
+        for idea in ideas {
+            if let parentPlaylist = idea.playlist {
+                var found = false
+                
+                for i in parentPlaylist.ideas {
+                    if i.id == idea.id { found = true }
+                }
+                
+                if !found {
+                    print("\(idea.id) lists \(parentPlaylist.name) as parent playlist, but is not contained within it")
+                }
+            }
+        }
     }
 }
 
