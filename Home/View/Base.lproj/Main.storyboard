@@ -89,7 +89,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="alR-DK-vP4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="576"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au5-94-zfs">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au5-94-zfs">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="9jN-rO-OP5"/>
@@ -431,13 +431,22 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="Fo5-Kc-xdX">
+                                        <rect key="frame" x="172" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="IHr-cj-cB5"/>
+                                            <constraint firstAttribute="height" constant="70" id="Pgg-LY-im6"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="alR-DK-vP4" secondAttribute="trailing" id="7vL-GZ-MkB"/>
+                                    <constraint firstItem="Fo5-Kc-xdX" firstAttribute="centerX" secondItem="w7b-Qc-Ua1" secondAttribute="centerX" id="GIi-sv-3mV"/>
                                     <constraint firstItem="alR-DK-vP4" firstAttribute="leading" secondItem="w7b-Qc-Ua1" secondAttribute="leading" id="HCS-ru-wra"/>
                                     <constraint firstItem="alR-DK-vP4" firstAttribute="top" secondItem="w7b-Qc-Ua1" secondAttribute="top" id="NNP-8g-FvD"/>
                                     <constraint firstAttribute="bottom" secondItem="alR-DK-vP4" secondAttribute="bottom" id="Wrf-gZ-PXf"/>
+                                    <constraint firstItem="Fo5-Kc-xdX" firstAttribute="top" secondItem="w7b-Qc-Ua1" secondAttribute="top" id="iUt-PR-duQ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IPf-Mc-A7R" customClass="ControlContainableTableView" customModule="Home" customModuleProvider="target">
@@ -500,7 +509,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hRG-ll-Q8Z">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbr-lu-PA0">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbr-lu-PA0">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="v9y-AG-jnQ"/>
@@ -632,6 +641,13 @@
                                     <constraint firstItem="hRG-ll-Q8Z" firstAttribute="leading" secondItem="2AT-4G-ltu" secondAttribute="leading" id="zJZ-BP-AY4"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="fzZ-vQ-Z5J">
+                                <rect key="frame" x="172" y="44" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="920-vM-glU"/>
+                                    <constraint firstAttribute="height" constant="70" id="avH-tB-Yno"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yfd-JI-sph"/>
                         <color key="backgroundColor" name="homeBlue5"/>
@@ -639,6 +655,8 @@
                             <constraint firstItem="2AT-4G-ltu" firstAttribute="bottom" secondItem="yfd-JI-sph" secondAttribute="bottom" id="3iJ-5u-UeR"/>
                             <constraint firstItem="yfd-JI-sph" firstAttribute="trailing" secondItem="2AT-4G-ltu" secondAttribute="trailing" id="7El-AD-6n9"/>
                             <constraint firstItem="2AT-4G-ltu" firstAttribute="top" secondItem="yfd-JI-sph" secondAttribute="top" id="A04-E0-W42"/>
+                            <constraint firstItem="fzZ-vQ-Z5J" firstAttribute="centerX" secondItem="sh4-K7-txg" secondAttribute="centerX" id="fku-DI-rcR"/>
+                            <constraint firstItem="fzZ-vQ-Z5J" firstAttribute="top" secondItem="yfd-JI-sph" secondAttribute="top" id="fvg-NE-tWT"/>
                             <constraint firstItem="2AT-4G-ltu" firstAttribute="leading" secondItem="yfd-JI-sph" secondAttribute="leading" id="hyw-R9-Wnp"/>
                         </constraints>
                     </view>
@@ -1726,12 +1744,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="X10-8s-dWa"/>
+        <segue reference="ZWp-Yh-KDT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="profile" width="341.33334350585938" height="341.33334350585938"/>
         <namedColor name="homeBlue2">
             <color red="0.16862745098039217" green="0.73333333333333328" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
