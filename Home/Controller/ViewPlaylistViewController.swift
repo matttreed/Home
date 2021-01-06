@@ -44,7 +44,7 @@ class ViewPlaylistViewController: UIViewController, ideaCellParentVC, canBlurVC 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ideasTable.register(UINib(nibName: K.ideaCellNibName, bundle: nil), forCellReuseIdentifier: K.identifiers.idea)
+        ideasTable.register(UINib(nibName: K.nibs.ideaCellNib, bundle: nil), forCellReuseIdentifier: K.identifiers.idea)
         
         ideasTable.delegate = self
         ideasTable.dataSource = self
@@ -69,9 +69,10 @@ class ViewPlaylistViewController: UIViewController, ideaCellParentVC, canBlurVC 
 //        let playlistColor = UIColor(named: selectedPlaylist?.color ?? "blueGradient")!.cgColor
 //        let cmps = playlistColor.components
 //        let clearerColor = UIColor(red: cmps![0], green: cmps![1], blue: cmps![2], alpha: 0.4)
-        gradient.colors = [UIColor(named: selectedPlaylist?.color ?? "blueGradient")!.cgColor, UIColor.white.cgColor]
+        gradient.colors = [UIColor(named: selectedPlaylist!.color + "Transparent")!.cgColor, UIColor.white.cgColor]
         
         rootView.layer.insertSublayer(gradient, at: 0)
+        rootView.backgroundColor = UIColor.white
         
         playlistTitleLabel.text = selectedPlaylist!.name
         

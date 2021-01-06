@@ -28,15 +28,17 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        playlistPickerTable.register(UINib(nibName: K.nibs.playlistPickerCellNib, bundle: nil), forCellReuseIdentifier: K.identifiers.playlistCellSelectable)
+        
         pickerContainer.layer.cornerRadius = 10
         
         playlistPickerTable.dataSource = self
         playlistPickerTable.delegate = self
         
-        let playlist = Playlist()
-        playlist.name = K.text.randomPlaylist
-        playlist.color = K.text.randomColorString
-        realmInterface.saveNew(playlist: playlist)
+//        let playlist = Playlist()
+//        playlist.name = K.text.randomPlaylist
+//        playlist.color = K.text.randomColorString
+//        realmInterface.saveNew(playlist: playlist)
         
         playlistArray = realmInterface.loadPlaylists()
         
@@ -52,18 +54,19 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.identifiers.playlist, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.identifiers.playlistCellSelectable, for: indexPath) as! PlaylistPickerCell
         
         if let playlist = playlistArray?[indexPath.row] {
             if playlist.id == idea?.playlist?.id {
-                cell.accessoryType = .checkmark
+                cell.playlistContainer.layer.borderWidth = 3
+                cell.playlistContainer.layer.borderColor = UIColor.black.cgColor
             } else {
-                cell.accessoryType = .none
+                cell.playlistContainer.layer.borderWidth = 0
             }
-            cell.backgroundColor = K.colors.getColorFromString(playlist.color)
+            cell.playlistContainer.layer.backgroundColor = K.colors.getColorFromString(playlist.color).cgColor
         }
         
-        cell.textLabel?.text = playlistArray?[indexPath.row].name ?? "No Playlists Yet"
+        cell.playlistLabel.text = playlistArray?[indexPath.row].name ?? "No Playlists Yet"
         return cell
     }
 

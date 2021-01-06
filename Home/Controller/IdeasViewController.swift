@@ -52,7 +52,7 @@ class IdeasViewController: UIViewController, ideaCellParentVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ideasTable.register(UINib(nibName: K.ideaCellNibName, bundle: nil), forCellReuseIdentifier: K.identifiers.idea)
+        ideasTable.register(UINib(nibName: K.nibs.ideaCellNib, bundle: nil), forCellReuseIdentifier: K.identifiers.idea)
         
         ideasTable.delegate = self
         ideasTable.dataSource = self

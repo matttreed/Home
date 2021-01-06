@@ -28,7 +28,7 @@ class PlaylistsViewController: UIViewController, canBlurVC {
         playlistTable.dataSource = self
         playlistTable.rowHeight = 120
         
-        playlistTable.register(UINib(nibName: K.playlistCellNibName, bundle: nil), forCellReuseIdentifier: K.identifiers.playlistCellFull)
+        playlistTable.register(UINib(nibName: K.nibs.playlistCellNib, bundle: nil), forCellReuseIdentifier: K.identifiers.playlistCellFull)
         
         playlistArray = realmInterface.loadPlaylists()
         

@@ -9,13 +9,17 @@ import Foundation
 import UIKit
 
 struct K {
-    static let ideaCellNibName = "IdeaCell"
-    static let playlistCellNibName = "PlaylistCell"
+    struct nibs {
+        static let ideaCellNib = "IdeaCell"
+        static let playlistCellNib = "PlaylistCell"
+        static let playlistPickerCellNib = "PlaylistPickerCell"
+    }
     
     struct identifiers {
         static let idea = "ideaPrototype"
         static let playlistCell = "playlistCell"
         static let playlistCellFull = "playlistCellFull"
+        static let playlistCellSelectable = "playlistCellSelectable"
         static let viewPlaylistCell = "viewPlaylistCell"
         static let createIdea = "createIdeaPrototype"
         static let playlist = "playlistCellPrototype"

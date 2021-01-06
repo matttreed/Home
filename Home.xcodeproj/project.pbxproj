@@ -24,6 +24,8 @@
 		3443EEB625A2AF3700E0DA85 /* PlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EEB425A2AF3700E0DA85 /* PlaylistCell.swift */; };
 		3443EEB725A2AF3700E0DA85 /* PlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3443EEB525A2AF3700E0DA85 /* PlaylistCell.xib */; };
 		3443EED825A57FA000E0DA85 /* ViewPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EED725A57FA000E0DA85 /* ViewPlaylistViewController.swift */; };
+		3443EEE725A5A5C200E0DA85 /* PlaylistPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EEE525A5A5C200E0DA85 /* PlaylistPickerCell.swift */; };
+		3443EEE825A5A5C200E0DA85 /* PlaylistPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3443EEE625A5A5C200E0DA85 /* PlaylistPickerCell.xib */; };
 		34B0309C259C4039006B32BC /* PlaylistPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */; };
 		34B030B1259C6BB0006B32BC /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030B0259C6BB0006B32BC /* Idea.swift */; };
 		34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030BB259C6CD6006B32BC /* Playlist.swift */; };
@@ -77,6 +79,8 @@
 		3443EEB425A2AF3700E0DA85 /* PlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCell.swift; sourceTree = "<group>"; };
 		3443EEB525A2AF3700E0DA85 /* PlaylistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCell.xib; sourceTree = "<group>"; };
 		3443EED725A57FA000E0DA85 /* ViewPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPlaylistViewController.swift; sourceTree = "<group>"; };
+		3443EEE525A5A5C200E0DA85 /* PlaylistPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPickerCell.swift; sourceTree = "<group>"; };
+		3443EEE625A5A5C200E0DA85 /* PlaylistPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistPickerCell.xib; sourceTree = "<group>"; };
 		34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPickerViewController.swift; sourceTree = "<group>"; };
 		34B030B0259C6BB0006B32BC /* Idea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idea.swift; sourceTree = "<group>"; };
 		34B030BB259C6CD6006B32BC /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -184,8 +188,7 @@
 				3443EE6E259D4EEB00E0DA85 /* PlaylistsViewController.swift */,
 				3443EED725A57FA000E0DA85 /* ViewPlaylistViewController.swift */,
 				F387E802259DB9C7001E645E /* EditPlaylistViewController.swift */,
-				3443EE73259DBEF500E0DA85 /* IdeaCell.swift */,
-				3443EEB425A2AF3700E0DA85 /* PlaylistCell.swift */,
+				3443EEEC25A5A5CE00E0DA85 /* Cells */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				34115919259A9C05006D7A53 /* Main.storyboard */,
 				3443EE74259DBEF500E0DA85 /* IdeaCell.xib */,
 				3443EEB525A2AF3700E0DA85 /* PlaylistCell.xib */,
+				3443EEE625A5A5C200E0DA85 /* PlaylistPickerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +224,16 @@
 				34115953259AA184006D7A53 /* Constants.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3443EEEC25A5A5CE00E0DA85 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3443EE73259DBEF500E0DA85 /* IdeaCell.swift */,
+				3443EEB425A2AF3700E0DA85 /* PlaylistCell.swift */,
+				3443EEE525A5A5C200E0DA85 /* PlaylistPickerCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		526F9D207FCA19905F9C017C /* Frameworks */ = {
@@ -358,6 +372,7 @@
 				34115920259A9C08006D7A53 /* Assets.xcassets in Resources */,
 				3443EEB725A2AF3700E0DA85 /* PlaylistCell.xib in Resources */,
 				3411591B259A9C05006D7A53 /* Main.storyboard in Resources */,
+				3443EEE825A5A5C200E0DA85 /* PlaylistPickerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +509,7 @@
 				F394377925A0687E0026085D /* DayButton.swift in Sources */,
 				34115918259A9C05006D7A53 /* TitleScreenViewController.swift in Sources */,
 				34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */,
+				3443EEE725A5A5C200E0DA85 /* PlaylistPickerCell.swift in Sources */,
 				3443EE75259DBEF500E0DA85 /* IdeaCell.swift in Sources */,
 				34B030B1259C6BB0006B32BC /* Idea.swift in Sources */,
 				34115914259A9C05006D7A53 /* AppDelegate.swift in Sources */,
