@@ -14,6 +14,9 @@ class Playlist: Object {
     @objc dynamic var startTime: String = "9:00 AM"
     @objc dynamic var endTime: String = "10:00 PM"
     @objc dynamic var days: Int8 = 127
+    @objc dynamic var isOn: Bool = true
+    @objc dynamic var dateCreated: String = Date().description
+    @objc dynamic var lastEdited: String = Date().description
     let ideas: List<Idea> = List<Idea>()
     @objc dynamic var color: String = ""
     @objc dynamic var id: String = UUID().uuidString

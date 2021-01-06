@@ -37,7 +37,7 @@ class RealmInterface {
     }
     
     func loadPlaylists() -> Results<Playlist> {
-        return realm.objects(Playlist.self).sorted(byKeyPath: "name", ascending: false)
+        return realm.objects(Playlist.self).sorted(byKeyPath: "lastEdited", ascending: false)
     }
     
     func update(ideaObject: Idea, idea: String? = nil, explanation: String? = nil) {
@@ -65,22 +65,25 @@ class RealmInterface {
         }
     }
     
-    func update(playlistObject: Playlist, name: String? = nil, frequency: Int? = nil, startTime: String? = nil,
-                endTime: String? = nil, days: Int8? = nil) {
+    func update(playlistObject: Playlist, name: String? = nil, color: String? = nil, frequency: Int? = nil, startTime: String? = nil,
+                endTime: String? = nil, days: Int8? = nil, isOn: Bool? = nil, lastEdited: String? = nil) {
         do {
             try realm.write {
                 if name != nil { playlistObject.name = name! }
+                if color != nil { playlistObject.color = color! }
                 if frequency != nil { playlistObject.frequency = frequency! }
                 if startTime != nil { playlistObject.startTime = startTime! }
                 if endTime != nil { playlistObject.endTime = endTime! }
                 if days != nil { playlistObject.days = days! }
+                if isOn != nil { playlistObject.isOn = isOn! }
+                if lastEdited != nil { playlistObject.lastEdited = lastEdited! }
             }
         } catch {
             print("Error updating playlist: \(error)")
         }
     }
     
-    func addIdeaToPlaylist(playlistObject: Playlist, idea: Idea) {
+    private func addIdeaToPlaylist(playlistObject: Playlist, idea: Idea) {
         do {
             try realm.write {
                 playlistObject.ideas.append(idea)
@@ -91,7 +94,7 @@ class RealmInterface {
         
     }
     
-    func removeIdeaFromPlaylist(playlistObject: Playlist, idea: Idea) {
+    private func removeIdeaFromPlaylist(playlistObject: Playlist, idea: Idea) {
         do {
             try realm.write {
                 playlistObject.ideas.remove(at: playlistObject.ideas.index(of: idea)!)

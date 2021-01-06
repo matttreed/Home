@@ -10,13 +10,14 @@ import UIKit
 
 struct K {
     static let ideaCellNibName = "IdeaCell"
+    static let playlistCellNibName = "PlaylistCell"
     
     struct identifiers {
         static let idea = "ideaPrototype"
-        static let playlistCell = "PlaylistCell"
+        static let playlistCell = "playlistCell"
+        static let playlistCellFull = "playlistCellFull"
         static let viewPlaylistCell = "viewPlaylistCell"
         static let createIdea = "createIdeaPrototype"
-        //static let createIdea = "createIdeaPrototype"
         static let playlist = "playlistCellPrototype"
     }
     struct segues {
@@ -24,13 +25,13 @@ struct K {
         static let editIdea = "editIdeaSegue"
         static let pickPlaylist = "pickPlaylistSegue"
         static let createPlaylist = "createPlaylist"
-        static let editToPlaylists = "editToPlaylistsSegue"
+        //static let editToPlaylists = "editToPlaylistsSegue"
         static let ideasToPlaylists = "ideasToPlaylists"
-        static let playlistsToIdeas = "playlistsToIdeas"
+        //static let playlistsToIdeas = "playlistsToIdeas"
         static let playlistsToView = "playlistsToView"
-        static let viewToPlaylists = "viewToPlaylists"
+        //static let viewToPlaylists = "viewToPlaylists"
         static let editWithinPlaylist = "editWithinPlaylist"
-        static let editToViewPlaylist = "editToViewPlaylist"
+        //static let editToViewPlaylist = "editToViewPlaylist"
     }
     struct data {
         static let timeList = ["1:00 AM","2:00 AM","3:00 AM","4:00 AM","5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM","10:00 AM","11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM", "12:00 AM"]
@@ -51,8 +52,8 @@ struct K {
             }
         }
         static func getColorFromString(_ color: String?) -> UIColor {
-            if color == nil {return UIColor.gray}
-            return UIColor(named: color!) ?? UIColor.gray
+            if color == nil {return UIColor.systemGray}
+            return UIColor(named: color!) ?? UIColor.systemGray
         }
     }
     struct text {
@@ -75,7 +76,7 @@ struct K {
             let getFormatter = DateFormatter()
             getFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
             let printFormatter = DateFormatter()
-            printFormatter.dateFormat = "MM/dd/yyyy HH:mm"
+            printFormatter.dateFormat = "MM/dd/yyyy, HH:mm"
             let date = getFormatter.date(from: getSubstring(of: date, from: 0, to: 18))
             return printFormatter.string(from: date!)
         }

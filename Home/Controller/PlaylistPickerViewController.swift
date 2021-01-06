@@ -11,12 +11,15 @@ import RealmSwift
 class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var playlistPickerTable: UITableView!
+    @IBOutlet weak var pickerContainer: UIView!
     
     let realm = try! Realm()
     
     let realmInterface = RealmInterface()
     
     var parentVC: IdeasViewController? = nil
+    
+    var parentBlur: UIVisualEffectView?
     
     var playlistArray: Results<Playlist>?
     
@@ -25,7 +28,7 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        playlistPickerTable.layer.cornerRadius = 10
+        pickerContainer.layer.cornerRadius = 10
         
         playlistPickerTable.dataSource = self
         playlistPickerTable.delegate = self
@@ -36,6 +39,11 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
         realmInterface.saveNew(playlist: playlist)
         
         playlistArray = realmInterface.loadPlaylists()
+        
+        let blurEffect = UIBlurEffect(style: .regular)
+        parentBlur = UIVisualEffectView(effect: blurEffect)
+        parentBlur!.frame = parentVC!.rootView.bounds
+        parentVC!.rootView.addSubview(parentBlur!)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +68,12 @@ class PlaylistPickerViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     @IBAction func doneButtonPressed(_ sender: UIButton) {
+        if let newPlaylist = idea?.playlist {
+            realmInterface.update(playlistObject: newPlaylist, lastEdited: Date().description)
+        }
+        
         parentVC?.updateUI()
+        parentBlur!.removeFromSuperview()
         self.dismiss(animated: true, completion: nil)
     }
     

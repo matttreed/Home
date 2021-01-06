@@ -21,6 +21,8 @@
 		3443EE75259DBEF500E0DA85 /* IdeaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EE73259DBEF500E0DA85 /* IdeaCell.swift */; };
 		3443EE76259DBEF500E0DA85 /* IdeaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3443EE74259DBEF500E0DA85 /* IdeaCell.xib */; };
 		3443EE81259DCE9D00E0DA85 /* ControlContainableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */; };
+		3443EEB625A2AF3700E0DA85 /* PlaylistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3443EEB425A2AF3700E0DA85 /* PlaylistCell.swift */; };
+		3443EEB725A2AF3700E0DA85 /* PlaylistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3443EEB525A2AF3700E0DA85 /* PlaylistCell.xib */; };
 		34B0309C259C4039006B32BC /* PlaylistPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */; };
 		34B030B1259C6BB0006B32BC /* Idea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030B0259C6BB0006B32BC /* Idea.swift */; };
 		34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030BB259C6CD6006B32BC /* Playlist.swift */; };
@@ -72,6 +74,8 @@
 		3443EE73259DBEF500E0DA85 /* IdeaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCell.swift; sourceTree = "<group>"; };
 		3443EE74259DBEF500E0DA85 /* IdeaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdeaCell.xib; sourceTree = "<group>"; };
 		3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlContainableTableView.swift; sourceTree = "<group>"; };
+		3443EEB425A2AF3700E0DA85 /* PlaylistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCell.swift; sourceTree = "<group>"; };
+		3443EEB525A2AF3700E0DA85 /* PlaylistCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistCell.xib; sourceTree = "<group>"; };
 		34B0309B259C4039006B32BC /* PlaylistPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPickerViewController.swift; sourceTree = "<group>"; };
 		34B030B0259C6BB0006B32BC /* Idea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Idea.swift; sourceTree = "<group>"; };
 		34B030BB259C6CD6006B32BC /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
@@ -181,7 +185,7 @@
 				F387E802259DB9C7001E645E /* EditPlaylistViewController.swift */,
 				F334FC3D25A0D5F700A1F8D8 /* ViewPlaylistViewController.swift */,
 				3443EE73259DBEF500E0DA85 /* IdeaCell.swift */,
-				3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */,
+				3443EEB425A2AF3700E0DA85 /* PlaylistCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +195,7 @@
 			children = (
 				34115919259A9C05006D7A53 /* Main.storyboard */,
 				3443EE74259DBEF500E0DA85 /* IdeaCell.xib */,
+				3443EEB525A2AF3700E0DA85 /* PlaylistCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				34B030BB259C6CD6006B32BC /* Playlist.swift */,
 				34B030C3259C7259006B32BC /* RealmInterface.swift */,
 				F394377825A0687E0026085D /* DayButton.swift */,
+				3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 				3443EE76259DBEF500E0DA85 /* IdeaCell.xib in Resources */,
 				34115923259A9C08006D7A53 /* LaunchScreen.storyboard in Resources */,
 				34115920259A9C08006D7A53 /* Assets.xcassets in Resources */,
+				3443EEB725A2AF3700E0DA85 /* PlaylistCell.xib in Resources */,
 				3411591B259A9C05006D7A53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +500,7 @@
 				34115961259AA34E006D7A53 /* IdeasViewController.swift in Sources */,
 				F334FC3E25A0D5F700A1F8D8 /* ViewPlaylistViewController.swift in Sources */,
 				34115916259A9C05006D7A53 /* SceneDelegate.swift in Sources */,
+				3443EEB625A2AF3700E0DA85 /* PlaylistCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,8 +24,18 @@ class IdeaCell: SwipeTableViewCell {
     var parentVC: IdeasViewController?
     var idea: Idea?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        stackViewContainer.layer.cornerRadius = 10
+        backgroundColor = UIColor.clear
+    }
+    
+    
+    
   
     @IBAction func expandButtonPressed(_ sender: UIButton) {
+        
         if idea?.explanation != nil {
             if parentVC!.expandedIdeas.contains(idea!.id) {
                 cellImage.image = UIImage(systemName: "chevron.down")
@@ -43,25 +53,5 @@ class IdeaCell: SwipeTableViewCell {
             self.parentVC?.ideasTable.endUpdates()
         }
     }
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        stackViewContainer.layer.cornerRadius = 10
-        
-//        stackViewContainer.layer.shadowOpacity = 1
-//        stackViewContainer.layer.shadowPath = UIBezierPath(rect: stackViewContainer.bounds).cgPath
-//        stackViewContainer.layer.shadowRadius = 5
-//        stackViewContainer.layer.shadowOffset = .zero
-//        stackViewContainer.layer.shadowOpacity = 1
-    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
     
 }

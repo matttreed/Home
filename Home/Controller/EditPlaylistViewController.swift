@@ -9,13 +9,16 @@ import UIKit
 
 class EditPlaylistViewController: UIViewController {
     
+    @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var playlistNameTextField: UITextField!
     @IBOutlet weak var ideaFrequency: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var createOrDeleteButton: UIButton!
+    @IBOutlet weak var settingsStackView: UIStackView!
     
+    @IBOutlet weak var daysContainer: UIView!
     @IBOutlet weak var sunday: DayButton!
     @IBOutlet weak var monday: DayButton!
     @IBOutlet weak var tuesday: DayButton!
@@ -27,6 +30,7 @@ class EditPlaylistViewController: UIViewController {
     
     let realmInterface = RealmInterface()
     
+    var parentVC: PlaylistsViewController? = nil
     var create: Bool = true
     var playlist: Playlist = Playlist()
     var startTimes = [String]()
@@ -47,7 +51,22 @@ class EditPlaylistViewController: UIViewController {
         playlistNameTextField.delegate = self
         
         initialize()
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = rootView.bounds
+        gradient.colors = [UIColor.white.cgColor, CGColor(red: 0.17, green: 0.73, blue: 1, alpha: 0.4)]
 
+        rootView.layer.insertSublayer(gradient, at: 0)
+        daysContainer.layer.cornerRadius = 10
+        settingsStackView.layer.cornerRadius = 10
+        createOrDeleteButton.layer.cornerRadius = 10
+        sunday.layer.cornerRadius = 10
+        monday.layer.cornerRadius = 10
+        tuesday.layer.cornerRadius = 10
+        wednesday.layer.cornerRadius = 10
+        thursday.layer.cornerRadius = 10
+        friday.layer.cornerRadius = 10
+        saturday.layer.cornerRadius = 10
     }
     
     func initialize() {
@@ -80,18 +99,14 @@ class EditPlaylistViewController: UIViewController {
     // MARK: - Cancel Playlist
     
     @IBAction func cancelPlaylistPressed(_ sender: Any) {
-        if create {
-            performSegue(withIdentifier: K.segues.editToPlaylists, sender: self)
-        } else {
-            performSegue(withIdentifier: K.segues.editToViewPlaylist, sender: self)
-        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Update Playlist
     @IBAction func doneButtonPressed(_ sender: Any) {
         if !create {
             realmInterface.update(playlistObject: playlist, name: name, frequency: frequency, startTime: startTime, endTime: endTime, days: days)
-            performSegue(withIdentifier: K.segues.editToViewPlaylist, sender: self)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -117,22 +132,22 @@ class EditPlaylistViewController: UIViewController {
     @IBAction func dayButtonPressed(_ button: DayButton) {
         if button.on {
             deselectButton(button)
-            days = days & (K.data.and - K.data.dayToInt[button.titleLabel!.text!]!)
+            days = days & (K.data.and - K.data.dayToInt[button.accessibilityLabel!]!)
         } else {
             selectButton(button)
-            days = days | K.data.dayToInt[button.titleLabel!.text!]!
+            days = days | K.data.dayToInt[button.accessibilityLabel!]!
         }
     }
     
     func deselectButton(_ button: DayButton) {
-        button.setTitleColor(UIColor.systemGray2, for: .normal)
-        button.backgroundColor = .white
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
         button.on = false
     }
     
     func selectButton(_ button: DayButton) {
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor.systemGray2
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
         button.on = true
     }
     
@@ -154,22 +169,29 @@ class EditPlaylistViewController: UIViewController {
             endTime = endTimes[pickerView.selectedRow(inComponent: 1)]
             realmInterface.saveNew(playlist: playlist)
             realmInterface.update(playlistObject: playlist, name: name, frequency: frequency, startTime: startTime, endTime: endTime, days: days)
+            
+            //print(playlist)
+            
+            let parentVC = presentingViewController as! PlaylistsViewController
+            parentVC.updateUI()
+            self.dismiss(animated: true) {
+                //parentVC.performSegue(withIdentifier: K.segues.playlistsToView, sender: parentVC)
+            }
         } else {
             realmInterface.delete(playlist: playlist)
+            self.dismiss(animated: true, completion: nil)
         }
-        
-        performSegue(withIdentifier: K.segues.editToPlaylists, sender: self)
     }
     
     
     // MARK: - Navigation
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segues.editToViewPlaylist {
-            let destinationVC = segue.destination as! ViewPlaylistViewController
-            destinationVC.selectedPlaylist = playlist
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == K.segues.editToViewPlaylist {
+//            let destinationVC = segue.destination as! ViewPlaylistViewController
+//            destinationVC.selectedPlaylist = playlist
+//        }
+//    }
 
 }
 

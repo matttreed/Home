@@ -53,7 +53,7 @@ class ViewPlaylistViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: K.segues.viewToPlaylists, sender: self)
+        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func settingsButtonPressed(_ sender: Any) {

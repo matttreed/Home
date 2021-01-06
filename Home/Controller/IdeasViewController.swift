@@ -41,7 +41,7 @@ class IdeasViewController: UIViewController {
     var backupIdea: Idea? = nil
     
     var expandedIdeas = Set<String>()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,33 +60,22 @@ class IdeasViewController: UIViewController {
         
         ideasTable.estimatedRowHeight = 100
         ideasTable.rowHeight = UITableView.automaticDimension
-
+        
         let gradient = CAGradientLayer()
         gradient.frame = rootView.bounds
         gradient.colors = [UIColor.white.cgColor, CGColor(red: 0.17, green: 0.73, blue: 1, alpha: 0.4)]
-
+        
         rootView.layer.insertSublayer(gradient, at: 0)
-        
-        rootView.backgroundColor = UIColor.white
-        
-        self.addCancelContainer.isHidden = true
         
         // used for testing Realm
         realmInterface.validateData()
-        
         updateUI()
     }
     
-
+    
     @IBAction func playlistTabPressed(_ sender: Any) {
         performSegue(withIdentifier: K.segues.ideasToPlaylists, sender: self)
     }
-
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-//        addDropShadow(view: newIdeaContainer)
-//    }
-//
     
     func addDropShadow(view: UIView) {
         let shadowPath = UIBezierPath(rect: view.bounds)
@@ -103,7 +92,7 @@ class IdeasViewController: UIViewController {
         updateUI()
     }
     
-
+    
     @IBAction func addExplanationPressed(_ sender: UIButton) {
         realmInterface.update(ideaObject: currentIdea!, idea: ideaTextView.text, explanation: "")
         updateUI()
@@ -117,8 +106,6 @@ class IdeasViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        
-        
         if let safeIdea = currentIdea {
             if ideaTextView.text == "" {
                 errorLabel.text = "Write an idea"
@@ -126,8 +113,8 @@ class IdeasViewController: UIViewController {
                 var explanation = explanationTextView.text
                 if explanation == "" { explanation = nil }
                 realmInterface.update(ideaObject: safeIdea,
-                                  idea: ideaTextView.text,
-                                  explanation: explanation)
+                                      idea: ideaTextView.text,
+                                      explanation: explanation)
                 currentIdea = nil
                 errorLabel.text = ""
                 backupIdea = nil
@@ -153,7 +140,7 @@ class IdeasViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
+        
         if segue.identifier == K.segues.pickPlaylist {
             let destination = segue.destination as! PlaylistPickerViewController
             destination.parentVC = self
@@ -162,57 +149,54 @@ class IdeasViewController: UIViewController {
     }
     
     func updateUI() {
-        
-        
-        
         if currentIdea == nil {
-                                self.addNewIdeaContainer.isHidden = false
-                                self.ideaContainer.isHidden = true
-                                self.addExplanationContainer.isHidden = true
-                                self.explanationContainer.isHidden = true
-                                self.playlistSelectContainer.isHidden = true
-                                self.addCancelContainer.isHidden = true
-                                self.ideaTextView.text = ""
-                                self.explanationTextView.text = ""
+            self.addNewIdeaContainer.isHidden = false
+            self.ideaContainer.isHidden = true
+            self.addExplanationContainer.isHidden = true
+            self.explanationContainer.isHidden = true
+            self.playlistSelectContainer.isHidden = true
+            self.addCancelContainer.isHidden = true
+            self.ideaTextView.text = ""
+            self.explanationTextView.text = ""
             
         } else {
             self.playlistLabelContainer.backgroundColor = K.colors.getColorFromString(currentIdea!.playlist?.color)
-                                self.addNewIdeaContainer.isHidden = true
-                                self.ideaTextView.text = self.currentIdea?.idea
-                                self.playlistLabel.text = (self.currentIdea?.playlist == nil) ? "General" : self.currentIdea?.playlist?.name
-                                self.addNewIdeaContainer.isHidden = true
-                                self.ideaContainer.isHidden = false
-                                if self.currentIdea?.explanation == nil {
-                                    self.addExplanationContainer.isHidden = false
-                                    self.explanationContainer.isHidden = true
-                                    self.explanationTextView.text = nil
-                                } else {
-                                    self.addExplanationContainer.isHidden = true
-                                    self.explanationContainer.isHidden = false
-                                    self.explanationTextView.text = self.currentIdea?.explanation
-                                }
-                                self.playlistSelectContainer.isHidden = false
-                                
-                                self.addCancelContainer.isHidden = false
-                                self.ideasTable.reloadData()
-
+            self.addNewIdeaContainer.isHidden = true
+            self.ideaTextView.text = self.currentIdea?.idea
+            self.playlistLabel.text = (self.currentIdea?.playlist == nil) ? "General" : self.currentIdea?.playlist?.name
+            self.addNewIdeaContainer.isHidden = true
+            self.ideaContainer.isHidden = false
+            if self.currentIdea?.explanation == nil {
+                self.addExplanationContainer.isHidden = false
+                self.explanationContainer.isHidden = true
+                self.explanationTextView.text = nil
+            } else {
+                self.addExplanationContainer.isHidden = true
+                self.explanationContainer.isHidden = false
+                self.explanationTextView.text = self.currentIdea?.explanation
+            }
+            self.playlistSelectContainer.isHidden = false
+            
+            self.addCancelContainer.isHidden = false
+            self.ideasTable.reloadData()
+            
         }
         self.ideasTable.reloadData()
     }
 }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    // MARK: - Tableview Data Source
+
+
+
+
+
+
+
+
+
+
+
+// MARK: - Tableview Data Source
 
 extension IdeasViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -240,7 +224,7 @@ extension IdeasViewController: UITableViewDataSource {
             cell.explanationLabel.text = cellIdea.explanation
             
             if expandedIdeas.contains(cellIdea.id) {
-            // cell should be expanded
+                // cell should be expanded
                 cell.explanationContainer.isHidden = false
                 cell.cellImage.image = UIImage(systemName: "chevron.up")
             } else {
@@ -248,25 +232,11 @@ extension IdeasViewController: UITableViewDataSource {
             }
         }
         
-        //should be inside if block v
+        cell.playlistLabel.text = cellIdea.playlist?.name ?? "General"
+        cell.playlistViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist?.color)
         
-//        if cellIdea.playlist != nil {
-//            cell.playlistLabel.text = cellIdea.playlist!.name
-//            cell.playlistViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist!.color)
-//        }
-        if cellIdea.playlist != nil {
-            cell.playlistLabel.text = cellIdea.playlist!.name
-//            cell.playlistLabel.textColor = K.colors.getColorFromString(cellIdea.playlist!.color)
-            cell.playlistViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist!.color)
-            //cell.dateLabel.textColor = K.colors.getColorFromString(cellIdea.playlist!.color)
-            //cell.dateViewContainer.backgroundColor = K.colors.getColorFromString(cellIdea.playlist!.color)
-        }
-
         
         cell.dateLabel.text = K.text.getNiceDate(date: cellIdea.dateCreated)
-        
-        
-        cell.backgroundColor = UIColor.clear
         
         return cell
     }
@@ -283,7 +253,7 @@ extension IdeasViewController: UITableViewDelegate {
 extension IdeasViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
-
+        
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
             
@@ -302,10 +272,10 @@ extension IdeasViewController: SwipeTableViewCellDelegate {
         }
         
         editAction.image = UIImage(named: "pencil")
-
+        
         return [deleteAction, editAction]
     }
-
+    
     func visibleRect(for tableView: UITableView) -> CGRect? {
         return tableView.safeAreaLayoutGuide.layoutFrame
     }
