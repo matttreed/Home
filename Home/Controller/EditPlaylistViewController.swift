@@ -27,6 +27,14 @@ class EditPlaylistViewController: UIViewController {
     @IBOutlet weak var friday: DayButton!
     @IBOutlet weak var saturday: DayButton!
     
+    @IBOutlet weak var gray: UIButton!
+    @IBOutlet weak var red: UIButton!
+    @IBOutlet weak var orange: UIButton!
+    @IBOutlet weak var yellow: UIButton!
+    @IBOutlet weak var green: UIButton!
+    @IBOutlet weak var blue: UIButton!
+    @IBOutlet weak var purple: UIButton!
+    
     
     let realmInterface = RealmInterface()
     
@@ -36,6 +44,7 @@ class EditPlaylistViewController: UIViewController {
     var startTimes = [String]()
     var endTimes = [String]()
     var buttonsDict: [String: DayButton]?
+    var selectedColorButton: UIButton?
     
     var name: String = ""
     var frequency: Int = 2
@@ -67,10 +76,19 @@ class EditPlaylistViewController: UIViewController {
         thursday.layer.cornerRadius = 10
         friday.layer.cornerRadius = 10
         saturday.layer.cornerRadius = 10
+        
+        gray.layer.cornerRadius = 5
+        red.layer.cornerRadius = 5
+        orange.layer.cornerRadius = 5
+        yellow.layer.cornerRadius = 5
+        green.layer.cornerRadius = 5
+        blue.layer.cornerRadius = 5
+        purple.layer.cornerRadius = 5
     }
     
     func initialize() {
         buttonsDict = ["Sun": sunday, "Mon": monday, "Tue": tuesday, "Wed": wednesday, "Thu": thursday, "Fri": friday, "Sat": saturday]
+        let colorsDict = ["" : gray, "playlistRed": red, "playlistOrange": orange, "playlistYellow": yellow, "playlistGreen": green, "playlistBlue": blue, "playlistPurple": purple]
         
         if create {
             doneButton.isHidden = true
@@ -79,6 +97,7 @@ class EditPlaylistViewController: UIViewController {
         } else {
             titleLabel.text = "Edit Playlist"
             createOrDeleteButton.setTitle("Delete Playlist", for: .normal)
+            createOrDeleteButton.setTitleColor(UIColor.systemRed, for: .normal)
             name = playlist.name
             frequency = playlist.frequency
             startTime = playlist.startTime
@@ -86,6 +105,7 @@ class EditPlaylistViewController: UIViewController {
             days = playlist.days
         }
         
+        colorSelected(colorsDict[playlist.color]!!)
         playlistNameTextField.text = name
         ideaFrequency.text = "\(frequency)x"
         startTimes = getTimeList(start: 0)
@@ -105,11 +125,19 @@ class EditPlaylistViewController: UIViewController {
     // MARK: - Update Playlist
     @IBAction func doneButtonPressed(_ sender: Any) {
         if !create {
-            realmInterface.update(playlistObject: playlist, name: name, frequency: frequency, startTime: startTime, endTime: endTime, days: days)
+            realmInterface.update(playlistObject: playlist, name: name, color: selectedColorButton?.accessibilityLabel, frequency: frequency, startTime: startTime, endTime: endTime, days: days)
             self.dismiss(animated: true, completion: nil)
         }
     }
     
+    //MARK: - Choose Color
+    
+    @IBAction func colorSelected(_ sender: UIButton) {
+        selectedColorButton?.layer.borderWidth = 0
+        sender.layer.borderWidth = 3
+        sender.layer.borderColor = UIColor.black.cgColor
+        selectedColorButton = sender
+    }
     
     
     // MARK: - Choose Frequency
@@ -167,8 +195,9 @@ class EditPlaylistViewController: UIViewController {
             name = playlistNameTextField.text!
             startTime = startTimes[pickerView.selectedRow(inComponent: 0)]
             endTime = endTimes[pickerView.selectedRow(inComponent: 1)]
+            let color = selectedColorButton?.accessibilityLabel
             realmInterface.saveNew(playlist: playlist)
-            realmInterface.update(playlistObject: playlist, name: name, frequency: frequency, startTime: startTime, endTime: endTime, days: days)
+            realmInterface.update(playlistObject: playlist, name: name, color: color, frequency: frequency, startTime: startTime, endTime: endTime, days: days)
             
             //print(playlist)
             
@@ -179,7 +208,10 @@ class EditPlaylistViewController: UIViewController {
             }
         } else {
             realmInterface.delete(playlist: playlist)
-            self.dismiss(animated: true, completion: nil)
+            let parentVC = presentingViewController as! ViewPlaylistViewController
+            self.dismiss(animated: true) {
+                parentVC.handlePlaylistDeleted()
+            }
         }
     }
     

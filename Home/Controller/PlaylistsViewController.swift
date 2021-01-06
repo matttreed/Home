@@ -46,14 +46,14 @@ class PlaylistsViewController: UIViewController {
     }
     
     @IBAction func ideasTabPressed(_ sender: Any) {
+        let parentVC = presentingViewController as! IdeasViewController
+        parentVC.updateUI()
         self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func createPlaylistPressed(_ sender: Any) {
         performSegue(withIdentifier: K.segues.createPlaylist, sender: self)
     }
-    
-   
     
 }
     

@@ -11,7 +11,7 @@ import RealmSwift
 
 class ViewPlaylistViewController: UIViewController {
     
-    @IBOutlet var ideasList: UITableView! = UITableView()
+    @IBOutlet var ideasTable: UITableView! = UITableView()
     @IBOutlet weak var playlistName: UILabel!
     @IBOutlet weak var fullIdeaContainer: UIStackView!
     @IBOutlet weak var newIdeaContainer: UIView!
@@ -32,15 +32,15 @@ class ViewPlaylistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ideasList.dataSource = self
-        ideasList.delegate = self
+        ideasTable.dataSource = self
+        ideasTable.delegate = self
         
         initializeUI()
     }
     
     func initializeUI() {
         ideas = selectedPlaylist?.ideas.sorted(byKeyPath: "dateCreated", ascending: true)
-        ideasList.reloadData()
+        ideasTable.reloadData()
         
         playlistName.text = selectedPlaylist?.name
         newIdeaContainer.isHidden = false
@@ -53,6 +53,8 @@ class ViewPlaylistViewController: UIViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        let parentVC = presentingViewController as! PlaylistsViewController
+        parentVC.updateUI()
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -78,7 +80,7 @@ class ViewPlaylistViewController: UIViewController {
         realmInterface.update(ideaObject: newIdea!, playlist: selectedPlaylist)
         
         initializeUI()
-        ideasList.reloadData()
+        ideasTable.reloadData()
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -90,6 +92,13 @@ class ViewPlaylistViewController: UIViewController {
             let destination = segue.destination as! EditPlaylistViewController
             destination.create = false
             destination.playlist = selectedPlaylist!
+        }
+    }
+    
+    func handlePlaylistDeleted() {
+        let parentVC = presentingViewController as! PlaylistsViewController
+        dismiss(animated: true) {
+            parentVC.updateUI()
         }
     }
 }
@@ -104,7 +113,7 @@ extension ViewPlaylistViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ideasList.dequeueReusableCell(withIdentifier: K.identifiers.viewPlaylistCell, for: indexPath)
+        let cell = ideasTable.dequeueReusableCell(withIdentifier: K.identifiers.viewPlaylistCell, for: indexPath)
 
         cell.textLabel?.text = ideas?[indexPath.row].idea ?? "No ideas added yet"
         
