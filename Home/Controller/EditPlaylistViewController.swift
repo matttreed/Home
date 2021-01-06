@@ -7,7 +7,11 @@
 
 import UIKit
 
-class EditPlaylistViewController: UIViewController {
+protocol canBlurVC {
+    var rootView: UIView! { get set }
+}
+
+class EditPlaylistViewController: UIViewController, canBlurVC {
     
     @IBOutlet weak var rootView: UIView!
     @IBOutlet weak var doneButton: UIButton!
@@ -17,6 +21,7 @@ class EditPlaylistViewController: UIViewController {
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var createOrDeleteButton: UIButton!
     @IBOutlet weak var settingsStackView: UIStackView!
+    @IBOutlet weak var frequencyInterface: UIStackView!
     
     @IBOutlet weak var daysContainer: UIView!
     @IBOutlet weak var sunday: DayButton!
@@ -38,13 +43,14 @@ class EditPlaylistViewController: UIViewController {
     
     let realmInterface = RealmInterface()
     
-    var parentVC: PlaylistsViewController? = nil
+    var parentVC: canBlurVC? = nil
     var create: Bool = true
     var playlist: Playlist = Playlist()
     var startTimes = [String]()
     var endTimes = [String]()
     var buttonsDict: [String: DayButton]?
     var selectedColorButton: UIButton?
+    var parentBlur: UIVisualEffectView?
     
     var name: String = ""
     var frequency: Int = 2
@@ -61,11 +67,6 @@ class EditPlaylistViewController: UIViewController {
         
         initialize()
         
-        let gradient = CAGradientLayer()
-        gradient.frame = rootView.bounds
-        gradient.colors = [UIColor.white.cgColor, CGColor(red: 0.17, green: 0.73, blue: 1, alpha: 0.4)]
-
-        rootView.layer.insertSublayer(gradient, at: 0)
         daysContainer.layer.cornerRadius = 10
         settingsStackView.layer.cornerRadius = 10
         createOrDeleteButton.layer.cornerRadius = 10
@@ -84,6 +85,13 @@ class EditPlaylistViewController: UIViewController {
         green.layer.cornerRadius = 5
         blue.layer.cornerRadius = 5
         purple.layer.cornerRadius = 5
+        
+        frequencyInterface.layer.cornerRadius = 5
+        
+        let blurEffect = UIBlurEffect(style: .regular)
+        parentBlur = UIVisualEffectView(effect: blurEffect)
+        parentBlur!.frame = parentVC!.rootView.bounds
+        parentVC!.rootView.addSubview(parentBlur!)
     }
     
     func initialize() {
@@ -95,7 +103,7 @@ class EditPlaylistViewController: UIViewController {
             titleLabel.text = "New Playlist"
             createOrDeleteButton.setTitle("Create Playlist", for: .normal)
         } else {
-            titleLabel.text = "Edit Playlist"
+            titleLabel.text = "Settings"
             createOrDeleteButton.setTitle("Delete Playlist", for: .normal)
             createOrDeleteButton.setTitleColor(UIColor.systemRed, for: .normal)
             name = playlist.name
@@ -119,12 +127,14 @@ class EditPlaylistViewController: UIViewController {
     // MARK: - Cancel Playlist
     
     @IBAction func cancelPlaylistPressed(_ sender: Any) {
+        parentBlur?.removeFromSuperview()
         self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Update Playlist
     @IBAction func doneButtonPressed(_ sender: Any) {
         if !create {
+            parentBlur?.removeFromSuperview()
             realmInterface.update(playlistObject: playlist, name: name, color: selectedColorButton?.accessibilityLabel, frequency: frequency, startTime: startTime, endTime: endTime, days: days)
             self.dismiss(animated: true, completion: nil)
         }
@@ -169,12 +179,12 @@ class EditPlaylistViewController: UIViewController {
     
     func deselectButton(_ button: DayButton) {
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = .systemGray2
         button.on = false
     }
     
     func selectButton(_ button: DayButton) {
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.systemGray2, for: .normal)
         button.backgroundColor = .white
         button.on = true
     }
@@ -192,6 +202,7 @@ class EditPlaylistViewController: UIViewController {
     
     @IBAction func createOrDeleteButtonPressed(_ sender: Any) {
         if create {
+            parentBlur?.removeFromSuperview()
             name = playlistNameTextField.text!
             startTime = startTimes[pickerView.selectedRow(inComponent: 0)]
             endTime = endTimes[pickerView.selectedRow(inComponent: 1)]
@@ -203,30 +214,31 @@ class EditPlaylistViewController: UIViewController {
             
             let parentVC = presentingViewController as! PlaylistsViewController
             parentVC.updateUI()
-            self.dismiss(animated: true) {
-                //parentVC.performSegue(withIdentifier: K.segues.playlistsToView, sender: parentVC)
-            }
+            self.dismiss(animated: true, completion: nil)
         } else {
-            realmInterface.delete(playlist: playlist)
-            let parentVC = presentingViewController as! ViewPlaylistViewController
-            self.dismiss(animated: true) {
-                parentVC.handlePlaylistDeleted()
-            }
+            deleteCheck()
         }
     }
     
-    
-    // MARK: - Navigation
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == K.segues.editToViewPlaylist {
-//            let destinationVC = segue.destination as! ViewPlaylistViewController
-//            destinationVC.selectedPlaylist = playlist
-//        }
-//    }
-
+    func deleteCheck() {
+        // create the alert
+        let alert = UIAlertController(title: "Alert", message: "Are you sure you would like to delete \(playlist.name)?", preferredStyle: UIAlertController.Style.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { (alertAction) in
+            self.parentBlur?.removeFromSuperview()
+            self.realmInterface.delete(playlist: self.playlist)
+            let parentVC = self.presentingViewController as! ViewPlaylistViewController
+            self.dismiss(animated: true) {
+                parentVC.handlePlaylistDeleted()
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
 }
-
 
 // MARK: - Playlist Name
 

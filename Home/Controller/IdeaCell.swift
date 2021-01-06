@@ -10,6 +10,7 @@ import SwipeCellKit
 
 class IdeaCell: SwipeTableViewCell {
 
+    @IBOutlet weak var topRow: UIStackView!
     @IBOutlet weak var playlistViewContainer: UIView!
     @IBOutlet weak var playlistLabel: UILabel!
     @IBOutlet weak var stackViewContainer: UIView!
@@ -21,7 +22,7 @@ class IdeaCell: SwipeTableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dateViewContainer: UIView!
     
-    var parentVC: IdeasViewController?
+    var parentVC: ideaCellParentVC?
     var idea: Idea?
     
     override func awakeFromNib() {

@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 
-class PlaylistsViewController: UIViewController {
+class PlaylistsViewController: UIViewController, canBlurVC {
     
     @IBOutlet var rootView: UIView!
     @IBOutlet weak var createPlaylistButton: UIButton!
@@ -36,8 +36,9 @@ class PlaylistsViewController: UIViewController {
         
         let gradient = CAGradientLayer()
         gradient.frame = rootView.bounds
-        gradient.colors = [UIColor(named: "homeGreen5")!.cgColor, CGColor(red: 0.17, green: 0.73, blue: 1, alpha: 0.4)]
+        gradient.colors = [UIColor(named: "blueGradient")!.cgColor, UIColor(named: "homeBlue6")!.cgColor]
 
+        rootView.backgroundColor = UIColor.white
         rootView.layer.insertSublayer(gradient, at: 0)
     }
     
@@ -91,10 +92,11 @@ extension PlaylistsViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segues.playlistsToView {
             let destinationVC = segue.destination as! ViewPlaylistViewController
-            
-            if let playlist = selectedPlaylist {
-                destinationVC.selectedPlaylist = playlist
-            }
+            destinationVC.selectedPlaylist = selectedPlaylist
+        }
+        if segue.identifier == K.segues.createPlaylist {
+            let destinationVC = segue.destination as! EditPlaylistViewController
+            destinationVC.parentVC = self
         }
     }
 
@@ -105,21 +107,15 @@ extension PlaylistsViewController: UITableViewDelegate {
 extension PlaylistsViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
-
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
-            print("delete playlist")
-        }
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "delete")
         
-//        let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in
-//            self.performSegue(withIdentifier: K.segues.playlistsToView, sender: self)
-//        }
-//
-//        editAction.image = UIImage(named: "pencil")
+        let editAction = SwipeAction(style: .default, title: "Edit") { (action, indexPath) in
+            self.selectedPlaylist = self.playlistArray![indexPath.row]
+            self.performSegue(withIdentifier: K.segues.playlistsToView, sender: self)
+        }
 
-        return [deleteAction]
+        editAction.image = UIImage(named: "pencil")
+
+        return [editAction]
     }
 
 //    func visibleRect(for tableView: UITableView) -> CGRect? {

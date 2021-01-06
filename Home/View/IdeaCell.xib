@@ -32,12 +32,12 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-F2-YwR">
                                                         <rect key="frame" x="10" y="10" width="131.5" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="hcf-F2-YwR" secondAttribute="bottom" constant="10" id="8fB-bT-cpv"/>
                                                     <constraint firstItem="hcf-F2-YwR" firstAttribute="leading" secondItem="JiD-qq-G7G" secondAttribute="leading" constant="10" id="JKw-7F-7Vv"/>
@@ -153,6 +153,7 @@
                 <outlet property="playlistLabel" destination="hcf-F2-YwR" id="lfD-Gs-Hu1"/>
                 <outlet property="playlistViewContainer" destination="JiD-qq-G7G" id="PJA-jx-VRo"/>
                 <outlet property="stackViewContainer" destination="0et-Fp-vnt" id="VNm-va-v8R"/>
+                <outlet property="topRow" destination="2bx-Az-2By" id="alQ-CR-fmP"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="155.69196428571428"/>
         </tableViewCell>

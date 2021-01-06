@@ -9,7 +9,14 @@ import UIKit
 import RealmSwift
 import SwipeCellKit
 
-class IdeasViewController: UIViewController {
+
+protocol ideaCellParentVC {
+    var expandedIdeas: Set<String> { get set }
+    var ideasTable: UITableView! { get set }
+}
+
+class IdeasViewController: UIViewController, ideaCellParentVC {
+    
     
     
     @IBOutlet var rootView: UIView!
@@ -63,12 +70,15 @@ class IdeasViewController: UIViewController {
         
         let gradient = CAGradientLayer()
         gradient.frame = rootView.bounds
-        gradient.colors = [UIColor.white.cgColor, CGColor(red: 0.17, green: 0.73, blue: 1, alpha: 0.4)]
-        
+        gradient.colors = [UIColor(named: "blueGradient")!.cgColor, UIColor(named: "homeBlue6")!.cgColor]
+
+        rootView.backgroundColor = UIColor.white
         rootView.layer.insertSublayer(gradient, at: 0)
         
         // used for testing Realm
-        realmInterface.validateData()
+//        realmInterface.validateData()
+        
+        
         updateUI()
     }
     
@@ -256,9 +266,7 @@ extension IdeasViewController: SwipeTableViewCellDelegate {
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
-            
-            self.realmInterface.delete(idea: self.ideasArray![indexPath.row])
-            self.updateUI()
+            self.deleteCheck(idea: self.ideasArray![indexPath.row])
         }
         // customize the action appearance
         deleteAction.image = UIImage(named: "delete")
@@ -278,6 +286,21 @@ extension IdeasViewController: SwipeTableViewCellDelegate {
     
     func visibleRect(for tableView: UITableView) -> CGRect? {
         return tableView.safeAreaLayoutGuide.layoutFrame
+    }
+    
+    func deleteCheck(idea: Idea) {
+        // create the alert
+        let alert = UIAlertController(title: "Alert", message: "Are you sure you would like to delete this idea?", preferredStyle: UIAlertController.Style.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { (alertAction) in
+            self.realmInterface.delete(idea: idea)
+            self.updateUI()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
