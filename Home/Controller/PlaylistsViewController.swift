@@ -79,6 +79,7 @@ extension PlaylistsViewController: UITableViewDataSource {
         cell.playlistSwitch.isOn = playlist.isOn
         cell.playlist = playlist
         cell.dateLabel.text = K.text.getNiceDate(date: playlist.lastEdited)
+        cell.descriptionLabel.text = K.text.formatSettings(of: playlist)
         
         return cell
     }

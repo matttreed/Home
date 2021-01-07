@@ -56,7 +56,7 @@ class EditPlaylistViewController: UIViewController, canBlurVC {
     var frequency: Int = 2
     var startTime: String = "9:00 AM"
     var endTime: String = "10:00 PM"
-    var days: Int8 = 127
+    var days: Int = 127
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -189,7 +189,7 @@ class EditPlaylistViewController: UIViewController, canBlurVC {
         button.on = true
     }
     
-    func loadDays(_ days: Int8) {
+    func loadDays(_ days: Int) {
         for (day, num) in K.data.dayToInt {
             if days & num == 0 {
                 deselectButton(buttonsDict![day]!)
@@ -314,6 +314,15 @@ extension EditPlaylistViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+            case 0:
+                startTime = startTimes[row]
+            case 1:
+                endTime = endTimes[row]
+            default:
+                break
+        }
+        
         if (component == 0) {
             endTimes = getTimeList(start: row)
             pickerView.reloadComponent(1)

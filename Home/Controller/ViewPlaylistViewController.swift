@@ -69,7 +69,8 @@ class ViewPlaylistViewController: UIViewController, ideaCellParentVC, canBlurVC 
 //        let playlistColor = UIColor(named: selectedPlaylist?.color ?? "blueGradient")!.cgColor
 //        let cmps = playlistColor.components
 //        let clearerColor = UIColor(red: cmps![0], green: cmps![1], blue: cmps![2], alpha: 0.4)
-        gradient.colors = [UIColor(named: selectedPlaylist!.color + "Transparent")!.cgColor, UIColor.white.cgColor]
+        let playlistColor = (selectedPlaylist!.color == "") ? "blueGradient" : selectedPlaylist!.color + "Transparent"
+        gradient.colors = [UIColor(named: playlistColor)!.cgColor, UIColor.white.cgColor]
         
         rootView.layer.insertSublayer(gradient, at: 0)
         rootView.backgroundColor = UIColor.white

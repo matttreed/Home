@@ -15,6 +15,7 @@ class PlaylistCell: SwipeTableViewCell {
     @IBOutlet weak var playlistContainer: UIView!
     @IBOutlet weak var playlistSwitch: UISwitch!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var parentVC: PlaylistsViewController? = nil
     var playlist: Playlist? = nil
@@ -39,6 +40,7 @@ class PlaylistCell: SwipeTableViewCell {
     
     func switchValueDidChange() {
         realmInterface.update(playlistObject: playlist!, isOn: playlistSwitch.isOn)
+        realmInterface.refreshNotifications(for: playlist!)
     }
     
 }
