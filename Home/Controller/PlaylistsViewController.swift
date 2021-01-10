@@ -115,6 +115,8 @@ extension PlaylistsViewController: SwipeTableViewCellDelegate {
         }
 
         editAction.image = UIImage(named: "pencil")
+        
+        editAction.backgroundColor = K.colors.border
 
         return [editAction]
     }

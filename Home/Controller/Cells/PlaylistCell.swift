@@ -33,11 +33,6 @@ class PlaylistCell: SwipeTableViewCell {
         playlistSwitch.addAction(stateChanged, for: .valueChanged)
     }
     
-//    @IBAction func playlistTouched(_ sender: UIButton) {
-//        parentVC?.selectedPlaylist = playlist
-//        parentVC?.performSegue(withIdentifier: K.segues.playlistsToView, sender: parentVC!)
-//    }
-    
     func switchValueDidChange() {
         realmInterface.update(playlistObject: playlist!, isOn: playlistSwitch.isOn)
         realmInterface.refreshNotifications(for: playlist!)

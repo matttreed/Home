@@ -279,6 +279,8 @@ extension IdeasViewController: SwipeTableViewCellDelegate {
             }
         }
         
+        editAction.backgroundColor = K.colors.border
+        
         editAction.image = UIImage(named: "pencil")
         
         return [deleteAction, editAction]
@@ -290,7 +292,7 @@ extension IdeasViewController: SwipeTableViewCellDelegate {
     
     func deleteCheck(idea: Idea) {
         // create the alert
-        let alert = UIAlertController(title: "Alert", message: "Are you sure you would like to delete this idea?", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you would like to delete this idea?", preferredStyle: UIAlertController.Style.alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { (alertAction) in

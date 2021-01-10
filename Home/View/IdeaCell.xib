@@ -51,11 +51,11 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 5, 5:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRU-7l-C1G">
                                                         <rect key="frame" x="12" y="10" width="114.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                                        <color key="textColor" name="homeBorderColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="homeBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="tRU-7l-C1G" secondAttribute="bottom" constant="10" id="GqE-qS-zUo"/>
                                                     <constraint firstItem="tRU-7l-C1G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0m9-ve-2p6" secondAttribute="leading" constant="10" id="Hln-HX-yVJ"/>
@@ -71,6 +71,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqL-F5-lp2" userLabel="Idea">
                                                 <rect key="frame" x="10" y="10" width="230" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="homeLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8R-SH-3xx" userLabel="ExpandButton">
@@ -91,7 +92,7 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="homeBackground"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="AqL-F5-lp2" secondAttribute="bottom" constant="10" id="ABn-Po-vAI"/>
                                             <constraint firstItem="AqL-F5-lp2" firstAttribute="top" secondItem="qKC-3B-HxK" secondAttribute="top" constant="10" id="CMe-Lp-ntl"/>
@@ -112,10 +113,11 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBb-xI-Oh3" userLabel="Explanation">
                                                 <rect key="frame" x="10" y="10" width="270" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="homeLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="homeBackground"/>
                                         <constraints>
                                             <constraint firstItem="QBb-xI-Oh3" firstAttribute="leading" secondItem="pHO-6M-9JG" secondAttribute="leading" constant="10" id="URI-kl-0Zn"/>
                                             <constraint firstAttribute="trailing" secondItem="QBb-xI-Oh3" secondAttribute="trailing" constant="10" id="WvE-md-PNy"/>
@@ -124,7 +126,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <color key="backgroundColor" name="homeBorderColor"/>
                             </stackView>
                         </subviews>
                         <constraints>
@@ -161,17 +163,23 @@
     </objects>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <namedColor name="homeBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="homeBorderColor">
+            <color red="0.73094301771158732" green="0.72741189202215939" blue="0.73447414340101524" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="homeGreen8">
             <color red="0.37999999523162842" green="0.65499997138977051" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="homeLabelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

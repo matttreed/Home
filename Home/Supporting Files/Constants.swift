@@ -51,14 +51,17 @@ class K {
         static let playlistPurple = UIColor(named: "playlistPurple")
         static let playlistOrange = UIColor(named: "playlistOrange")
         static let playlistYellow = UIColor(named: "playlistYellow")
+        static let background = UIColor(named: "homeBackground")
+        static let label = UIColor(named: "homeLabelColor")
+        static let border = UIColor(named: "homeBorderColor")
         static var randomColor: UIColor {
             get {
                 return [playlistRed, playlistBlue, playlistGreen, playlistPurple, playlistOrange, playlistYellow].randomElement()!!
             }
         }
         static func getColorFromString(_ color: String?) -> UIColor {
-            if color == nil {return UIColor.systemGray}
-            return UIColor(named: color!) ?? UIColor.systemGray
+            if color == nil {return border!}
+            return UIColor(named: color!) ?? border!
         }
     }
     struct text {
@@ -83,18 +86,24 @@ class K {
             
             settings += "\(playlist.frequency)x -"
             
+            var daysString = ""
+            
             var mask = 128
             while mask > 1 {
                 mask /= 2
                 if (playlist.days & mask) != 0 {
-                    settings = settings + " " + data.intToLetter[mask]!
+                    daysString += " " + data.intToLetter[mask]!
                 }
             }
             
-            settings += " (\(playlist.startTime) \(playlist.endTime))"
+            if daysString == " M T W Th F" { daysString = " weekdays" }
+            if daysString == " S S" {daysString = " weekends"}
+            if daysString == " S M T W Th F S" { daysString = " everyday" }
+            
+            //settings += " (\(playlist.startTime) \(playlist.endTime))"
             
             
-            return settings
+            return settings + daysString
         }
         
         static func getNiceDate(date: String) -> String {

@@ -55,7 +55,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="homeBackground"/>
                                                 <constraints>
                                                     <constraint firstItem="xhJ-aX-Fgj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AQY-gy-dka" secondAttribute="leading" constant="10" id="YOf-e3-AxC"/>
                                                     <constraint firstAttribute="trailing" secondItem="xhJ-aX-Fgj" secondAttribute="trailing" constant="10" id="q3J-PO-tLC"/>
@@ -74,6 +74,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtA-gU-O5J" userLabel="Idea">
                                                 <rect key="frame" x="10" y="10" width="42.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" name="homeLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvU-ue-r8G" userLabel="ExpandButton">
@@ -83,7 +84,7 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="homeBackground"/>
                                         <constraints>
                                             <constraint firstItem="YvU-ue-r8G" firstAttribute="leading" secondItem="VL6-z4-bf6" secondAttribute="leading" id="5ob-z4-ccW"/>
                                             <constraint firstItem="qtA-gU-O5J" firstAttribute="top" secondItem="VL6-z4-bf6" secondAttribute="top" constant="10" id="Iev-DL-mcX"/>
@@ -96,7 +97,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <color key="backgroundColor" name="homeBorderColor"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5x-Q8-u81" userLabel="TouchPlaylist">
                                 <rect key="frame" x="0.0" y="0.0" width="290" height="96"/>
@@ -143,17 +144,23 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="homeBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="homeBorderColor">
+            <color red="0.60970131525161064" green="0.60675589826971887" blue="0.61264673223350252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="homeGreen8">
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="homeLabelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="playlistGreen">
             <color red="0.42399999499320984" green="0.72500002384185791" blue="0.38400000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

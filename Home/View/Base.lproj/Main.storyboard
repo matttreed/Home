@@ -20,25 +20,25 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mO-Mc-a0q">
                                 <rect key="frame" x="147.66666666666666" y="291.33333333333331" width="118.99999999999997" height="51.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
-                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <color key="textColor" name="homeBorderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a home is a place that reminds  us of who we are and who we aspire to be." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUZ-ro-uzb">
                                 <rect key="frame" x="50" y="543" width="314" height="75.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <color key="textColor" name="homeBorderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drT-js-E3s">
                                 <rect key="frame" x="157" y="762" width="100" height="50"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <color key="backgroundColor" name="homeBorderColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OBR-yh-e42"/>
                                     <constraint firstAttribute="width" constant="100" id="efy-ro-EiI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" name="homeBackground"/>
                                 </state>
                                 <connections>
                                     <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L8r-cG-qsi"/>
@@ -54,12 +54,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="welcome to yours..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C06-5f-WAv">
                                 <rect key="frame" x="119" y="658.33333333333337" width="176" height="25.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <color key="textColor" name="homeBorderColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="homeBackground"/>
                         <constraints>
                             <constraint firstItem="VUZ-ro-uzb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="2F7-jq-o8K"/>
                             <constraint firstItem="oL7-KP-msk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7rs-u8-3sn"/>
@@ -116,7 +116,7 @@
                                                                 <rect key="frame" x="10" y="10" width="187" height="30"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <state key="normal" title="Ideas">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" name="homeLabelColor"/>
                                                                 </state>
                                                             </button>
                                                         </subviews>
@@ -134,7 +134,7 @@
                                                                 <rect key="frame" x="10" y="10" width="187" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                 <state key="normal" title="Playlists">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" name="homeLabelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="playlistTabPressed:" destination="iIe-TR-yMi" eventType="touchUpInside" id="6jC-Oc-Cpp"/>
@@ -181,7 +181,7 @@
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                                         <state key="normal" title="   Add new idea...">
-                                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="titleColor" name="homeLabelColor"/>
                                                                                         </state>
                                                                                         <connections>
                                                                                             <action selector="addNewIdeaPressed:" destination="iIe-TR-yMi" eventType="touchUpInside" id="s5w-SD-5J5"/>
@@ -189,7 +189,7 @@
                                                                                     </button>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KV9-Ay-Eks">
                                                                                         <rect key="frame" x="339" y="12.33333333333333" width="30" height="25.666666666666668"/>
-                                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="tintColor" name="homeLabelColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="30" id="65g-Vj-S5E"/>
                                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="CFV-QY-rmk"/>
@@ -214,13 +214,13 @@
                                                                                 <subviews>
                                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="43q-B7-sym">
                                                                                         <rect key="frame" x="5" y="5" width="374" height="83"/>
-                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="backgroundColor" name="homeBackground"/>
+                                                                                        <color key="textColor" name="homeLabelColor"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                                     </textView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" name="homeBackground"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="43q-B7-sym" firstAttribute="leading" secondItem="1kw-uG-EZg" secondAttribute="leading" constant="5" id="3Zp-G1-aV6"/>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="58H-rd-ugw"/>
@@ -236,7 +236,7 @@
                                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <state key="normal" title="   Add an explanation...">
-                                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <color key="titleColor" name="homeLabelColor"/>
                                                                                         </state>
                                                                                         <connections>
                                                                                             <action selector="addExplanationPressed:" destination="iIe-TR-yMi" eventType="touchUpInside" id="cPo-Lx-ZYU"/>
@@ -269,11 +269,11 @@
                                                                                 <subviews>
                                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b2D-Yh-6GT">
                                                                                         <rect key="frame" x="5" y="5" width="374" height="135"/>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                        <color key="backgroundColor" name="homeBackground"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="135" id="6IE-mG-vTj"/>
                                                                                         </constraints>
-                                                                                        <color key="textColor" systemColor="labelColor"/>
+                                                                                        <color key="textColor" name="homeLabelColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                                     </textView>
@@ -344,7 +344,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                                                        <color key="backgroundColor" name="homeBorderColor"/>
                                                                     </stackView>
                                                                 </subviews>
                                                                 <constraints>
@@ -538,7 +538,7 @@
                                                                 <rect key="frame" x="10" y="10" width="187" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                 <state key="normal" title="Ideas">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" name="homeLabelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="ideasTabPressed:" destination="aPN-OI-g43" eventType="touchUpInside" id="awe-Kd-6py"/>
@@ -559,7 +559,7 @@
                                                                 <rect key="frame" x="10" y="10" width="187" height="30"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                 <state key="normal" title="Playlists">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" name="homeLabelColor"/>
                                                                 </state>
                                                             </button>
                                                         </subviews>
@@ -588,13 +588,13 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKh-Cd-wc1" userLabel="Create Playlist">
                                                         <rect key="frame" x="15" y="15" width="384" height="50"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="homeBackground"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="ulG-qI-3Dj"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <state key="normal" title="   Create Playlist">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" name="homeLabelColor"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="createPlaylistPressed:" destination="aPN-OI-g43" eventType="touchUpInside" id="hBh-2r-VrO"/>
@@ -602,7 +602,7 @@
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W3C-4y-Mzr">
                                                         <rect key="frame" x="354" y="27.333333333333329" width="30" height="25.666666666666671"/>
-                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" name="homeLabelColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="3yD-Nk-onX"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="DUK-hg-sL4"/>
@@ -708,6 +708,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="qyV-y6-qkm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                <color key="textColor" name="homeLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-B4-fbu" userLabel="AddNewIdea">
@@ -727,10 +728,10 @@
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lre-cq-tqe">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
-                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="backgroundColor" name="homeBackground"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                                         <state key="normal" title="   Add new idea...">
-                                                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                                                            <color key="titleColor" name="homeLabelColor"/>
                                                                                         </state>
                                                                                         <connections>
                                                                                             <action selector="addNewIdeaPressed:" destination="Iar-cs-fnd" eventType="touchUpInside" id="unw-2H-LPK"/>
@@ -739,7 +740,7 @@
                                                                                     </button>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MNc-8I-PZJ">
                                                                                         <rect key="frame" x="339" y="12.33333333333333" width="30" height="25.666666666666668"/>
-                                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                                        <color key="tintColor" name="homeLabelColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="30" id="YRn-Gk-Jtb"/>
                                                                                             <constraint firstAttribute="width" constant="30" id="Zrx-eR-tYn"/>
@@ -764,13 +765,13 @@
                                                                                 <subviews>
                                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qmO-4f-Yhb">
                                                                                         <rect key="frame" x="5" y="5" width="374" height="135"/>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                        <color key="textColor" systemColor="labelColor"/>
+                                                                                        <color key="backgroundColor" name="homeBackground"/>
+                                                                                        <color key="textColor" name="homeLabelColor"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                                     </textView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" name="homeBackground"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="0NG-Hg-QQf"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="qmO-4f-Yhb" secondAttribute="trailing" constant="5" id="6ON-Zt-IdV"/>
@@ -784,9 +785,9 @@
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Xf-dM-Up4">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="384" height="50"/>
-                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="backgroundColor" name="homeBackground"/>
                                                                                         <state key="normal" title="   Add an explanation...">
-                                                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                                                            <color key="titleColor" name="homeLabelColor"/>
                                                                                         </state>
                                                                                         <connections>
                                                                                             <action selector="addExplanationPressed:" destination="iIe-TR-yMi" eventType="touchUpInside" id="0Yj-5Q-g9c"/>
@@ -795,7 +796,7 @@
                                                                                     </button>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GNX-6x-6mi">
                                                                                         <rect key="frame" x="339" y="15.333333333333332" width="30" height="19.999999999999996"/>
-                                                                                        <color key="tintColor" systemColor="labelColor"/>
+                                                                                        <color key="tintColor" name="homeLabelColor"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="30" id="4gO-EK-Rl2"/>
                                                                                             <constraint firstAttribute="height" constant="30" id="er0-VQ-1ye"/>
@@ -820,16 +821,16 @@
                                                                                 <subviews>
                                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-AA-gul">
                                                                                         <rect key="frame" x="5" y="5" width="374" height="135"/>
-                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                        <color key="backgroundColor" name="homeBackground"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="135" id="Epu-ds-9d8"/>
                                                                                         </constraints>
-                                                                                        <color key="textColor" systemColor="labelColor"/>
+                                                                                        <color key="textColor" name="homeLabelColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                                     </textView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" name="homeBackground"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="5mO-UC-OyP"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="Wuy-AA-gul" secondAttribute="trailing" constant="5" id="DxQ-Rd-jbB"/>
@@ -958,7 +959,7 @@
                                     <constraint firstAttribute="height" constant="30" id="fDN-MO-xqq"/>
                                 </constraints>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <color key="titleColor" name="homeLabelColor"/>
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="Iar-cs-fnd" eventType="touchUpInside" id="rKs-S7-ahY"/>
@@ -971,7 +972,7 @@
                                     <constraint firstAttribute="height" constant="30" id="iox-BA-F8R"/>
                                 </constraints>
                                 <state key="normal" title="Settings">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <color key="titleColor" name="homeLabelColor"/>
                                 </state>
                                 <connections>
                                     <action selector="settingsButtonPressed:" destination="Iar-cs-fnd" eventType="touchUpInside" id="Bro-yR-CUa"/>
@@ -1047,7 +1048,7 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Cancel">
-                                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                                    <color key="titleColor" name="homeLabelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="cancelPlaylistPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="yjF-iQ-kE4"/>
@@ -1074,7 +1075,7 @@
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Done">
-                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleColor" name="homeLabelColor"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="doneButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="cnm-55-nMj"/>
@@ -1103,7 +1104,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="wwi-o5-O8v"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                                        <color key="textColor" red="0.14170131089999999" green="0.25973930950000002" blue="0.27748942380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" name="homeLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -1132,23 +1133,24 @@
                                                                                     <constraint firstAttribute="width" constant="50" id="QxS-Do-Dqr"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="homeLabelColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="deF-as-tYO">
                                                                                 <rect key="frame" x="60" y="0.0" width="304" height="40"/>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" name="homeBackground"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="noE-g1-pEG"/>
                                                                                 </constraints>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="homeLabelColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                                             </textField>
                                                                         </subviews>
+                                                                        <color key="backgroundColor" name="homeBackground"/>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" name="homeBackground"/>
                                                                 <constraints>
                                                                     <constraint firstItem="4UZ-5x-crS" firstAttribute="top" secondItem="R1y-PW-SvT" secondAttribute="top" constant="10" id="8eB-R7-ReI"/>
                                                                     <constraint firstItem="4UZ-5x-crS" firstAttribute="leading" secondItem="R1y-PW-SvT" secondAttribute="leading" constant="10" id="AfF-mK-Nrr"/>
@@ -1164,7 +1166,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzH-9o-0og" userLabel="Gray">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                <color key="backgroundColor" name="homeBorderColor"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="30" id="RbW-yS-J1G"/>
                                                                                 </constraints>
@@ -1241,7 +1243,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" name="homeBackground"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="3RQ-3g-4Vt"/>
                                                                     <constraint firstAttribute="bottom" secondItem="agc-xC-rrJ" secondAttribute="bottom" constant="10" id="cFW-I8-yCW"/>
@@ -1261,7 +1263,7 @@
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency of Ideas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJW-bU-uKl">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="192" height="50"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <color key="textColor" name="homeLabelColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                 </subviews>
@@ -1282,7 +1284,7 @@
                                                                                         <subviews>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Kh-dh-gG9">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                                <color key="backgroundColor" name="homeBorderColor"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="30" id="9hg-2s-wfd"/>
                                                                                                     <constraint firstAttribute="height" constant="30" id="ewz-Np-Qq5"/>
@@ -1302,12 +1304,12 @@
                                                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="qou-iY-Dl3"/>
                                                                                                 </constraints>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                <color key="textColor" name="homeLabelColor"/>
                                                                                                 <nil key="highlightedColor"/>
                                                                                             </label>
                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z66-j7-gmg">
                                                                                                 <rect key="frame" x="86" y="0.0" width="30" height="30"/>
-                                                                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                                                <color key="backgroundColor" name="homeBorderColor"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="height" constant="30" id="anl-Ge-3sj"/>
                                                                                                     <constraint firstAttribute="width" constant="30" id="hbq-wx-zwj"/>
@@ -1323,7 +1325,7 @@
                                                                                         </subviews>
                                                                                     </stackView>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                <color key="backgroundColor" name="homeBackground"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="stY-Rk-Tpj" firstAttribute="centerY" secondItem="77C-Y7-v2d" secondAttribute="centerY" id="2MW-tm-tfg"/>
                                                                                     <constraint firstItem="stY-Rk-Tpj" firstAttribute="centerX" secondItem="77C-Y7-v2d" secondAttribute="centerX" id="ecl-If-NmA"/>
@@ -1359,13 +1361,13 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpw-Do-eEn">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="192" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="homeLabelColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isH-wI-cc8">
                                                                                 <rect key="frame" x="192" y="0.0" width="192" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="textColor" name="homeLabelColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -1413,7 +1415,7 @@
                                                                                                 <accessibility key="accessibilityConfiguration" label="Sun"/>
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                                 <state key="normal" title="S">
-                                                                                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                                                                                    <color key="titleColor" name="homeBorderColor"/>
                                                                                                 </state>
                                                                                                 <connections>
                                                                                                     <action selector="dayButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="hSx-Pa-pjL"/>
@@ -1436,7 +1438,7 @@
                                                                                                 <accessibility key="accessibilityConfiguration" label="Mon"/>
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                                 <state key="normal" title="M">
-                                                                                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                                                                                    <color key="titleColor" name="homeBorderColor"/>
                                                                                                 </state>
                                                                                                 <connections>
                                                                                                     <action selector="dayButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="h99-Pi-sYz"/>
@@ -1459,7 +1461,7 @@
                                                                                                 <accessibility key="accessibilityConfiguration" label="Tue"/>
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                                 <state key="normal" title="T">
-                                                                                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                                                                                    <color key="titleColor" name="homeBorderColor"/>
                                                                                                 </state>
                                                                                                 <connections>
                                                                                                     <action selector="dayButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="3VZ-bK-nqU"/>
@@ -1482,7 +1484,7 @@
                                                                                                 <accessibility key="accessibilityConfiguration" label="Wed"/>
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                                 <state key="normal" title="W">
-                                                                                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                                                                                    <color key="titleColor" name="homeBorderColor"/>
                                                                                                 </state>
                                                                                                 <connections>
                                                                                                     <action selector="dayButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="rKk-Dd-aM8"/>
@@ -1505,7 +1507,7 @@
                                                                                                 <accessibility key="accessibilityConfiguration" label="Thu"/>
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                                 <state key="normal" title="Th">
-                                                                                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                                                                                    <color key="titleColor" name="homeBorderColor"/>
                                                                                                 </state>
                                                                                                 <connections>
                                                                                                     <action selector="dayButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="DEq-10-Add"/>
@@ -1528,7 +1530,7 @@
                                                                                                 <accessibility key="accessibilityConfiguration" label="Fri"/>
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                                 <state key="normal" title="F">
-                                                                                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                                                                                    <color key="titleColor" name="homeBorderColor"/>
                                                                                                 </state>
                                                                                                 <connections>
                                                                                                     <action selector="dayButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="waz-k3-AdQ"/>
@@ -1551,7 +1553,7 @@
                                                                                                 <accessibility key="accessibilityConfiguration" label="Sat"/>
                                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                                                                 <state key="normal" title="S">
-                                                                                                    <color key="titleColor" systemColor="systemGray2Color"/>
+                                                                                                    <color key="titleColor" name="homeBorderColor"/>
                                                                                                 </state>
                                                                                                 <connections>
                                                                                                     <action selector="dayButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="DoR-Sf-hjw"/>
@@ -1568,7 +1570,7 @@
                                                                                 </subviews>
                                                                             </stackView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                                        <color key="backgroundColor" name="homeBorderColor"/>
                                                                         <constraints>
                                                                             <constraint firstItem="9bk-Ay-Tqt" firstAttribute="leading" secondItem="zyn-aL-Ysb" secondAttribute="leading" constant="5" id="OhQ-6j-BGD"/>
                                                                             <constraint firstItem="9bk-Ay-Tqt" firstAttribute="top" secondItem="zyn-aL-Ysb" secondAttribute="top" id="cke-KT-Akv"/>
@@ -1587,7 +1589,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="homeBackground"/>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
@@ -1602,14 +1604,14 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz1-XP-nkM">
                                                         <rect key="frame" x="132" y="0.0" width="150" height="50"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" name="homeBackground"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="UlI-Iv-80w"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="i58-gc-943"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <state key="normal" title="Create Playlist">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" name="homeLabelColor"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="createOrDeleteButtonPressed:" destination="IVN-0E-6BJ" eventType="touchUpInside" id="e6J-lV-MIv"/>
@@ -1691,7 +1693,7 @@
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="50q-eT-Sff">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="618"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="homeBackground"/>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHa-Fm-oYG">
                                                 <rect key="frame" x="0.0" y="618" width="314" height="50"/>
@@ -1700,14 +1702,14 @@
                                                         <rect key="frame" x="15" y="15" width="284" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="15"/>
                                                         <state key="normal" title="Done">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleColor" name="homeLabelColor"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="doneButtonPressed:" destination="Dei-wc-AqZ" eventType="touchUpInside" id="AhG-oq-Edh"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="homeBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="7e5-yh-91Y" secondAttribute="trailing" constant="15" id="2Xo-VH-uaK"/>
                                                     <constraint firstAttribute="bottom" secondItem="7e5-yh-91Y" secondAttribute="bottom" constant="15" id="3co-OF-t9S"/>
@@ -1717,6 +1719,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" name="homeBackground"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1747,13 +1750,16 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZWp-Yh-KDT"/>
+        <segue reference="X10-8s-dWa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="profile" width="341.33334350585938" height="341.33334350585938"/>
+        <namedColor name="homeBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="homeBlue2">
             <color red="0.16862745098039217" green="0.73333333333333328" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1763,8 +1769,14 @@
         <namedColor name="homeBlue6">
             <color red="0.74000000953674316" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="homeBorderColor">
+            <color red="0.60970131525161064" green="0.60675589826971887" blue="0.61264673223350252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="homeGreen2">
             <color red="0.37999999523162842" green="0.65499997138977051" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="homeLabelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="playlistBlue">
             <color red="0.32899999618530273" green="0.66299998760223389" blue="0.81599998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1784,14 +1796,8 @@
         <namedColor name="playlistYellow">
             <color red="1" green="0.74900001287460327" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

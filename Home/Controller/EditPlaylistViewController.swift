@@ -178,14 +178,14 @@ class EditPlaylistViewController: UIViewController, canBlurVC {
     }
     
     func deselectButton(_ button: DayButton) {
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemGray2
+        button.setTitleColor(K.colors.background, for: .normal)
+        button.backgroundColor = K.colors.border
         button.on = false
     }
     
     func selectButton(_ button: DayButton) {
-        button.setTitleColor(.systemGray2, for: .normal)
-        button.backgroundColor = .white
+        button.setTitleColor(K.colors.border, for: .normal)
+        button.backgroundColor = K.colors.background
         button.on = true
     }
     
@@ -222,7 +222,7 @@ class EditPlaylistViewController: UIViewController, canBlurVC {
     
     func deleteCheck() {
         // create the alert
-        let alert = UIAlertController(title: "Alert", message: "Are you sure you would like to delete \(playlist.name)?", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you would like to delete \(playlist.name)?", preferredStyle: UIAlertController.Style.alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { (alertAction) in
@@ -258,9 +258,9 @@ extension EditPlaylistViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func initializeTimes() {
         startTimes = getTimeList(start: 0)
-        endTimes = getTimeList(start: 0)
+        endTimes = getTimeList(start: 8)
         pickerView.selectRow(8, inComponent: 0, animated: false)
-        pickerView.selectRow(21, inComponent: 1, animated: false)
+        pickerView.selectRow(8, inComponent: 1, animated: false)
     }
     
     func getTimeList(start: Int) -> [String] {
@@ -326,7 +326,10 @@ extension EditPlaylistViewController: UIPickerViewDelegate, UIPickerViewDataSour
         if (component == 0) {
             endTimes = getTimeList(start: row)
             pickerView.reloadComponent(1)
-            pickerView.selectRow(0, inComponent: 1, animated: false)
+            //pickerView.selectRow(0, inComponent: 1, animated: false)
+            var selectedEndTimeRow = K.data.timeToRow[endTime]! - K.data.timeToRow[startTime]!
+            if selectedEndTimeRow < 0 { selectedEndTimeRow = 0 }
+            pickerView.selectRow(selectedEndTimeRow, inComponent: 1, animated: false)
         }
     }
     
