@@ -18,7 +18,7 @@ class Playlist: Object {
     @objc dynamic var dateCreated: String = Date().description
     @objc dynamic var lastEdited: String = Date().description
     let ideas: List<Idea> = List<Idea>()
-    let pendingNotifications: List<String> = List<String>()
+    let pendingNotifications: List<Notification> = List<Notification>()
     @objc dynamic var color: String = ""
     @objc dynamic var id: String = UUID().uuidString
 }

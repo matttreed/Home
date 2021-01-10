@@ -31,6 +31,7 @@
 		34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030BB259C6CD6006B32BC /* Playlist.swift */; };
 		34B030C4259C7259006B32BC /* RealmInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B030C3259C7259006B32BC /* RealmInterface.swift */; };
 		34D6BD5925A65A0A00E54366 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6BD5825A65A0A00E54366 /* NotificationHandler.swift */; };
+		34D6BD6725A8565C00E54366 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D6BD6625A8565C00E54366 /* Notification.swift */; };
 		6EE52A23FB6C3AB8E47452B9 /* Pods_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C4E36F3C6397CB7B37B062 /* Pods_HomeTests.framework */; };
 		95420A31FAF705EC891D21C4 /* Pods_Home_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A3BDA6B44EA83A325E3651 /* Pods_Home_HomeUITests.framework */; };
 		C7C526D9912CA52CF9B7D966 /* Pods_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB81AC5BCC1CBC74D96DA9EB /* Pods_Home.framework */; };
@@ -87,6 +88,7 @@
 		34B030BB259C6CD6006B32BC /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		34B030C3259C7259006B32BC /* RealmInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInterface.swift; sourceTree = "<group>"; };
 		34D6BD5825A65A0A00E54366 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		34D6BD6625A8565C00E54366 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		3A5A105AE4D98B34F0C21C4B /* Pods-HomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.release.xcconfig"; path = "Target Support Files/Pods-HomeTests/Pods-HomeTests.release.xcconfig"; sourceTree = "<group>"; };
 		43BBB71F53897C0F4B929F3B /* Pods-HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTests/Pods-HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		43E20B97FDE475912E2F3C3D /* Pods-Home-HomeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home-HomeUITests.release.xcconfig"; path = "Target Support Files/Pods-Home-HomeUITests/Pods-Home-HomeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				F394377825A0687E0026085D /* DayButton.swift */,
 				3443EE80259DCE9D00E0DA85 /* ControlContainableTableView.swift */,
 				34D6BD5825A65A0A00E54366 /* NotificationHandler.swift */,
+				34D6BD6625A8565C00E54366 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				34B030BC259C6CD6006B32BC /* Playlist.swift in Sources */,
 				3443EEE725A5A5C200E0DA85 /* PlaylistPickerCell.swift in Sources */,
 				3443EE75259DBEF500E0DA85 /* IdeaCell.swift in Sources */,
+				34D6BD6725A8565C00E54366 /* Notification.swift in Sources */,
 				34B030B1259C6BB0006B32BC /* Idea.swift in Sources */,
 				34115914259A9C05006D7A53 /* AppDelegate.swift in Sources */,
 				34B0309C259C4039006B32BC /* PlaylistPickerViewController.swift in Sources */,

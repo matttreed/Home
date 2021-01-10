@@ -108,21 +108,21 @@ class RealmInterface {
                 for i in 0..<playlist.frequency {
                     let hour = Int(Float(startTime) + (Float(i) * period))
                     let minutes = Int((Float(i) * period).truncatingRemainder(dividingBy: 1.0) * 60.0)
-                    let id = notificationHandler.createNotification(hour: hour, minutes: minutes, day: day, playlist: playlist)
-                    addNotification(playlistObject: playlist, ID: id)
+                    let note = notificationHandler.createNotification(hour: hour, minutes: minutes, day: day, playlist: playlist)
                     //print("Notification created on day: \(day) at time: \(hour):\(minutes)")
+                    addNotification(playlistObject: playlist, notification: note)
                 }
             }
         }
     }
     
-    private func addNotification(playlistObject: Playlist, ID: String) {
+    private func addNotification(playlistObject: Playlist, notification: Notification) {
         do {
             try realm.write {
-                playlistObject.pendingNotifications.append(ID)
+                playlistObject.pendingNotifications.append(notification)
             }
         } catch {
-            print("Error adding notification to Playlist: \(error)")
+            print("Error clearing notifications from Playlist: \(error)")
         }
     }
     

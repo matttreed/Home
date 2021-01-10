@@ -12,19 +12,31 @@ class NotificationHandler {
     
     let notificationCenter = UNUserNotificationCenter.current()
     
-    func createNotification(hour: Int, minutes: Int, day: Int, playlist: Playlist) -> String {
+    //let realmInterface = RealmInterface()
+    
+    func createNotification(hour: Int, minutes: Int, day: Int, playlist: Playlist) -> Notification {
+        let notification = Notification()
+        notification.day = day
+        notification.hour = hour
+        notification.minutes = minutes
+        notification.playlist = playlist
+        notification.id = UUID().uuidString
+        notification.idea = playlist.ideas.randomElement()
+        
+        
+        
         let content = UNMutableNotificationContent()
-        content.title = playlist.name
-        content.body = playlist.ideas.randomElement()?.idea ?? "Empty Playlist"
+        content.title = notification.playlist?.name ?? "Error Loading Playlist"
+        content.body = notification.idea?.idea ?? "Error Loading Idea"
         content.sound = .default
         
         // Configure the recurring date.
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar(identifier: .gregorian)
 
-        dateComponents.weekday = day // 1-7
-        dateComponents.hour = hour
-        dateComponents.minute = minutes
+        dateComponents.weekday = notification.day // 1-7
+        dateComponents.hour = notification.hour
+        dateComponents.minute = notification.minutes
         dateComponents.timeZone = TimeZone.current
            
         // Create the trigger as a repeating event.
@@ -35,8 +47,7 @@ class NotificationHandler {
         
         
         // Create the request
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString,
+        let request = UNNotificationRequest(identifier: notification.id,
                     content: content, trigger: trigger)
 
         // Schedule the request with the system.
@@ -52,12 +63,16 @@ class NotificationHandler {
 //                print(trigger.nextTriggerDate()?.description)
 //            }
 //        }
-        return uuidString
+        return notification
     }
 
-    func removeNotifications(IDs: [String]) {
+    func removeNotifications(IDs: [Notification]) {
         //print(IDs)
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: IDs)
+        let idStrings = IDs.map { (notification) -> String in
+            return notification.id
+        }
+        
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: idStrings)
     }
     
     func requestAuthorization() {
